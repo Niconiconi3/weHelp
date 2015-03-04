@@ -1,0 +1,31 @@
+
+p.title{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 550;
+    font-family: 微软雅黑;
+    letter-spacing: 10px;
+}
+.roundBtn{
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    cursor: hand;
+}
+.ui-select {  
+    text-align: center; 
+    font-size: 20px;
+    /* 加border只是为了看到边框*/  
+    border:solid 1px;  
+}  
+.ui-select select {  
+    position: absolute;
+    left: 0px;
+    top:0px;
+    width: 100%; 
+    opacity: 0;  
+}   
+.head{
+    top:0px;left: 0px;
+    height: 90px;
+    width: 100%;
+}

@@ -1,0 +1,61 @@
+#hp_head{
+    position: fixed;
+}
+
+
+#hp_protrait{
+    position: absolute; top: 0px; left: 10px;
+    width: 90px;
+    height: 86px;
+    background-image: url(logo2.png);
+    overflow: hidden;
+    cursor: hand;
+}
+#hp_protrait a{ display:block;width: 90px; height: 86px; cursor:hand; }
+
+#hp_mailBox{
+    position: absolute; top: 20px; right:30px;
+    width: 70px;
+    height: 50px;
+    border:solid 1px;
+    background: white;
+    cursor: hand;
+}
+#hp_mailBox a{ display:block;  width:70px;  height:50px;  cursor:hand; }
+
+#hp_schboxs{
+    margin: 0 auto;
+    position: absolute; top:90px; left: 0px;
+    height: 45px;
+    width: 100%;
+}
+
+#hp_body{
+    position: absolute; top:135px; left:1px;
+    width: 100%;
+}
+
+#hp_sch1{float: left; width: 33%; height: 40px; line-height: 40px; font-size: 20px;}
+#hp_sch1 select{height: 40px;}
+#hp_sch2{float: left; width: 33%; height: 40px; line-height: 40px; font-size: 20px;}
+#hp_sch2 select{height: 40px;}
+#hp_sch3{float: left; width: 33.5%; height: 40px; line-height: 40px; font-size: 20px;}
+#hp_sch3 select{height: 40px;}
+
+
+#loginBtn{
+    background-color: #04b00f;color:#fff;
+    position:absolute;  
+    left:50%;  
+    top:50%;
+    margin-left: -160px;
+    margin-top: -30px;
+    font-family: 微软雅黑;
+    font-size: 20px;
+    text-align: center;
+    line-height: 60px;
+    height: 60px;
+    width: 320px;
+}
+
+#loginBtn a{ display: block; cursor: hand; height: 60px; width: 320px;}
