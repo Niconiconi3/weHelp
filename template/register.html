@@ -2,32 +2,21 @@
 
 <html>
 <head>
-    <title id="hyhHomePageTitle"></title>
+    <title id="register"></title>
     <meta http-equiv="content-type" content="text/html" charset="utf-8"></meta>
     <meta name="author" content="niconiconi-nju" ></meta>
 
     <script>
-        function checkEmail() {
-            var email = document.getElementById("email").value;
-            var reg = /^([a-zA-Z0-9_-])+@[a-zA-Z0-9_-]+(\.([a-zA-Z0-9_-]{2,3})){1,}$/i;
-            if (reg.test(email)) {
-                return true;
-            }
-            else {
-                alert("请输入正确的邮箱地址");
-                return false;
-            }
-        }
 
         function checkUsername() {
             var username = document.getElementById("username").value;
             var reg = /^(?!_)(?!.*?_$)[a-zA-Z0-9_\u4e00-\u9fa5]+$/;
             if (!reg.test(username)) {
-                alert("账户包含非法字符。支持中文、英文、数字、“_”");
+                alert("昵称包含非法字符。支持中文、英文、数字、“_”");
                 return false;
             }
             else if (username.length > 14) {
-                alert("用户名长度不符。请输入14位以内中文、英文、数字、“_”");
+                alert("昵称长度不符。请输入14位以内中文、英文、数字、“_”");
                 return false;
             }
             else {
@@ -35,35 +24,44 @@
             }
         }
 
-        function checkPassword() {
-            var length = document.getElementById("password").value.length;
-            if (length < 6 || length > 18) {
-                alert("密码长度不符。请输入6-18位密码");
+        function checkStudentId() {
+            var length = document.getElementById("studentid").value.length;
+            if (length!=9) {
+                alert("请输入正确的学号");
                 return false;
             }
             else {
-                return true;
+                if (isNaN(document.getElementById("studentid"))) {
+                    alert("请输入正确的学号");
+                    return false;
+                }
+                else {
+                    return true;
+                }
             }
         }
 
-        function checkRepassword() {
-            var repassword = document.getElementById("repassword").value;
-            var password = document.getElementById("password").value;
-            if (repassword != password) {
-                alert("确认密码与密码不符，请重新输入");
-                document.getElementById("repassword").value = "";
+        function checkPhoneNumber() {                   //只单纯验证长短，未设置验证码，安全性较低
+            var pn = document.getElementById("phoneNumber").value;
+            if (pn.length != 11) {
+                alert("请输入正确的手机号");
                 return false;
             }
             else {
-                return true;
+                if (isNaN(pn)) {
+                    alert("请输入正确的手机号");
+                    return false;
+                }
+                else {
+                    return true;
+                } 
             }
         }
 
         function check() {
-            if (!checkEmail()) return false;
             if (!checkUsername()) return false;
-            if (!checkPassword()) return false;
-            if (!checkRepassword()) return false;
+            if (!checkStudentId()) return false;
+            if (!checkPhoneNumber()) return false;
             return true;
         }
     </script>
@@ -79,23 +77,19 @@
     <form name="register" action="?" method="post" onsubmit="return check();">
         <ul>
             <li class="form-list">
-                <span>Email</span>
-                <input id="email" type="text" name="email" onchange="checkEmail()" />
-            </li>
-            <li class="form-list">
-                <span>Your Name</span>
+                <span>昵称</span>
                 <input id="username" type="text" name="username" onchange="checkUsername()" />
             </li>
             <li class="form-list">
-                <span>Password</span>
-                <input id="password" type="password" name="password" onchange="checkPassword()" />
+                <span>学号</span>
+                <input id="studentid" type="password" name="password" onchange="checkStudentId()" />
             </li>
             <li class="form-list">
-                <span>Repeat Password</span>
-                <input id="repassword" type="password" name="repassword" onchange="checkRepassword()" />
+                <span>手机号</span>
+                <input id="phoneNumber" type="password" name="repassword" onchange="checkPhoneNumber()" />
             </li>
             <li class="form-list">
-                <input type="submit" value="enjoy it" />
+                <input type="submit" value="join us" />
             </li>
         </ul>
 
