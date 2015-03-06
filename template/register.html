@@ -3,8 +3,8 @@
 <html>
 <head>
     <title id="register"></title>
-    <meta http-equiv="content-type" content="text/html" charset="utf-8"></meta>
-    <meta name="author" content="niconiconi-nju" ></meta>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <meta name="author" content="niconiconi-nju" >
 
     <script>
 
@@ -24,14 +24,14 @@
             }
         }
 
-        function checkStudentId() {
+        function checkStudentId() {                                                  //如果可以导入教务网数据验证学号更好
             var length = document.getElementById("studentid").value.length;
             if (length!=9) {
                 alert("请输入正确的学号");
                 return false;
             }
             else {
-                if (isNaN(document.getElementById("studentid"))) {
+                if (isNaN(document.getElementById("studentid").value)) {
                     alert("请输入正确的学号");
                     return false;
                 }
@@ -60,7 +60,7 @@
 
         function check() {
             if (!checkUsername()) return false;
-            if (!checkStudentId()) return false;
+            if (!checkStudentId()) return false;                            //后台应验证学号、手机号是否被注册过
             if (!checkPhoneNumber()) return false;
             return true;
         }
@@ -82,11 +82,11 @@
             </li>
             <li class="form-list">
                 <span>学号</span>
-                <input id="studentid" type="password" name="password" onchange="checkStudentId()" />
+                <input id="studentid" type="text" name="studentid" onchange="checkStudentId()" />
             </li>
             <li class="form-list">
                 <span>手机号</span>
-                <input id="phoneNumber" type="password" name="repassword" onchange="checkPhoneNumber()" />
+                <input id="phoneNumber" type="text" name="studentid" onchange="checkPhoneNumber()" />
             </li>
             <li class="form-list">
                 <input type="submit" value="join us" />
