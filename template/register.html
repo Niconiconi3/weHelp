@@ -41,27 +41,9 @@
             }
         }
 
-        function checkPhoneNumber() {                   //只单纯验证长短，未设置验证码，安全性较低
-            var pn = document.getElementById("phoneNumber").value;
-            if (pn.length != 11) {
-                alert("请输入正确的手机号");
-                return false;
-            }
-            else {
-                if (isNaN(pn)) {
-                    alert("请输入正确的手机号");
-                    return false;
-                }
-                else {
-                    return true;
-                } 
-            }
-        }
-
         function check() {
             if (!checkUsername()) return false;
-            if (!checkStudentId()) return false;                            //后台应验证学号、手机号是否被注册过
-            if (!checkPhoneNumber()) return false;
+            if (!checkStudentId()) return false;                            //后台应验证学号是否被注册过
             return true;
         }
     </script>
@@ -83,10 +65,6 @@
             <li class="form-list">
                 <span>学号</span>
                 <input id="studentid" type="text" name="studentid" onchange="checkStudentId()" />
-            </li>
-            <li class="form-list">
-                <span>手机号</span>
-                <input id="phoneNumber" type="text" name="studentid" onchange="checkPhoneNumber()" />
             </li>
             <li class="form-list">
                 <input type="submit" value="join us" />
