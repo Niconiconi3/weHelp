@@ -2,9 +2,9 @@ CREATE TABLE IF NOT EXISTS `t_studentid` (
   `id` int(9) NOT NULL,
   `username` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `token` varchar(50) NOT NULL COMMENT '¼¤»îÂë',
-  `token_exptime` int(10) NOT NULL COMMENT '¼¤»îÂëÓĞĞ§ÆÚ',
-  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '×´Ì¬0-Î´¼¤»î£¬×´Ì¬1-¼¤»î',
-  `regtime` int(10) NOT NULL COMMENT '×¢²áÊ±¼ä',
+  `token` varchar(50) NOT NULL COMMENT 'æ¿€æ´»ç ',
+  `token_exptime` int(10) NOT NULL COMMENT 'æ¿€æ´»ç æœ‰æ•ˆæœŸ',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'çŠ¶æ€0-æœªæ¿€æ´»ï¼ŒçŠ¶æ€1-æ¿€æ´»',
+  `regtime` int(10) NOT NULL COMMENT 'æ³¨å†Œæ—¶é—´',
   PRIMARY KEY (id)
   )DEFAULT CHARSET=utf-8;

@@ -1,20 +1,20 @@
 <?php
-    include_once("connect.php");//Á¬½ÓÊı¾İ¿â
-    include_once("smtp.class.php");//ÓÊ¼ş·¢ËÍÀà
+    include_once("connect.php");//è¿æ¥æ•°æ®åº“
+    include_once("smtp.class.php");//é‚®ä»¶å‘é€ç±»
    
     $username = stripslashes(trim($_POST['username']));
     $studentid = trim($_POST[studentid]);
     $query = mysql_query("select id from t_studentid where id = '$studentid'");
     $num = mysql_num_rows($query);
     if($num==1){
-      echo 'Ñ§ºÅÒÑ×¢²á¹ı£¬Çë¼ì²éÊäÈë¡£';
+      echo 'å­¦å·å·²æ³¨å†Œè¿‡ï¼Œè¯·æ£€æŸ¥è¾“å…¥ã€‚';
 	  exit;
 	}
-	//¹¹Ôì¼¤»îÊ¶±ğÂë£º
+	//æ„é€ æ¿€æ´»è¯†åˆ«ç ï¼š
 	$email = trim($_POST['email']);
 	$regtime = time();
-	$token = md5($username,$studentid,$regtime);//´´½¨¼¤»îÊ¶±ğÂë
-	$token_exptime = time()+60*60*48;//¹ıÆÚÊ±¼äÎª48Ğ¡Ê±ºó
+	$token = md5($username,$studentid,$regtime);//åˆ›å»ºæ¿€æ´»è¯†åˆ«ç 
+	$token_exptime = time()+60*60*48;//è¿‡æœŸæ—¶é—´ä¸º48å°æ—¶å
 	
 	$sql = "insert into `t_studentid`(id,username,email,token,token_exptime,regtime)
 	values($studentid,$username,$email,$token,$token_exptime,$regtime)";
@@ -22,24 +22,24 @@
 	mysql_query($sql);
 	
 	if(mysql_num_rows($sql)){
-	    $amtpserver = "smtp.163.com"; //SMTP·şÎñÆ÷
-	    $smtpserverport = 25; //SMTP·şÎñÆ÷¶Ë¿Ú£¬Ò»°ã25
-	    $smtpusermail = "niconiconi_nju@163.com"; //SMTP·şÎñÆ÷µÄÓÃ»§ÓÊÏä
-	    $smtpuser = "niconiconi_nju@163.com";//SMTP·şÎñÆ÷µÄÓÃ»§ÕËºÅ
-    	$smtppass = "njuniconiconi";//SMTP·şÎñÆ÷µÄÓÃ»§ÃÜÂë
+	    $amtpserver = "smtp.163.com"; //SMTPæœåŠ¡å™¨
+	    $smtpserverport = 25; //SMTPæœåŠ¡å™¨ç«¯å£ï¼Œä¸€èˆ¬25
+	    $smtpusermail = "niconiconi_nju@163.com"; //SMTPæœåŠ¡å™¨çš„ç”¨æˆ·é‚®ç®±
+	    $smtpuser = "niconiconi_nju@163.com";//SMTPæœåŠ¡å™¨çš„ç”¨æˆ·è´¦å·
+    	$smtppass = "njuniconiconi";//SMTPæœåŠ¡å™¨çš„ç”¨æˆ·å¯†ç 
     	$smtp = new Smtp($smtpserver, $smtpserverport,true,$smtpuser,$smtppass);
-    	$emailtype = "HTML";//ĞÅ¼şÀàĞÍ
-     	$smtpemailto = $email; //ÓÊ¼ş½ÓÊÕ·½
-    	$smtpmailfrom = $smtpusermail; //·¢ËÍÓÊ¼ş·½
-    	$emailsubject = "¾ÙÊÖÖ®ÀÍÓÃ»§ÕËºÅ¼¤»î";//ÓÊ¼şÖ÷Ìâ
-	//ÓÊ¼şÖ÷ÌåÄÚÈİ£º
-    	$emailbody = "Ç×°®µÄ".$username.":<br/>¸ĞĞ»ÄúÔÚÎÒÆ½Ì¨×¢²áĞÂÕËºÅ¡£<br/>Çëµã»÷Á´½Ó¼¤»îÄúµÄÕËºÅ¡£<br/><a href='http://www.wehelp.com/demo/register/active.php?verify=".$token"'target='_blank'>http://www.wehelp.com/demo/register/active.php?verify=".$token."</a><br/>
-	Èç¹ûÒÔÉÏÁ´½ÓÎŞ·¨µã»÷£¬Çë½«Ëü¸´ÖÆµ½ÄãµÄä¯ÀÀÆ÷µØÖ·À¸ÖĞ½øÈë·ÃÎÊ£¬¸ÃÁ´½Ó48Ğ¡Ê±ÄÚÓĞĞ§¡£
-	<br/>Èç¹û´Ë´Î¼¤»îÇëÇó·ÇÄã±¾ÈËËù·¢£¬ÇëºöÂÔ±¾ÓÊ¼ş¡£<br/><p style='text-align:right'>-------- weHelpÍÅ¶Ó¾´ÉÏ</p>";
-	//·¢ËÍÓÊ¼ş£º
+    	$emailtype = "HTML";//ä¿¡ä»¶ç±»å‹
+     	$smtpemailto = $email; //é‚®ä»¶æ¥æ”¶æ–¹
+    	$smtpmailfrom = $smtpusermail; //å‘é€é‚®ä»¶æ–¹
+    	$emailsubject = "ä¸¾æ‰‹ä¹‹åŠ³ç”¨æˆ·è´¦å·æ¿€æ´»";//é‚®ä»¶ä¸»é¢˜
+	//é‚®ä»¶ä¸»ä½“å†…å®¹ï¼š
+    	$emailbody = "äº²çˆ±çš„".$username.":<br/>æ„Ÿè°¢æ‚¨åœ¨æˆ‘å¹³å°æ³¨å†Œæ–°è´¦å·ã€‚<br/>è¯·ç‚¹å‡»é“¾æ¥æ¿€æ´»æ‚¨çš„è´¦å·ã€‚<br/><a href='http://www.wehelp.com/demo/register/active.php?verify=".$token"'target='_blank'>http://www.wehelp.com/demo/register/active.php?verify=".$token."</a><br/>
+	å¦‚æœä»¥ä¸Šé“¾æ¥æ— æ³•ç‚¹å‡»ï¼Œè¯·å°†å®ƒå¤åˆ¶åˆ°ä½ çš„æµè§ˆå™¨åœ°å€æ ä¸­è¿›å…¥è®¿é—®ï¼Œè¯¥é“¾æ¥48å°æ—¶å†…æœ‰æ•ˆã€‚
+	<br/>å¦‚æœæ­¤æ¬¡æ¿€æ´»è¯·æ±‚éä½ æœ¬äººæ‰€å‘ï¼Œè¯·å¿½ç•¥æœ¬é‚®ä»¶ã€‚<br/><p style='text-align:right'>-------- weHelpå›¢é˜Ÿæ•¬ä¸Š</p>";
+	//å‘é€é‚®ä»¶ï¼š
   	    $rs = $smtp->sendmail($smtpemailto,$smtpmailfrom,$emailsubject,$emailbody,$emailtype);
     	if($rs==1){
-	        $msg = '¹§Ï²Äú£¬ÑéÖ¤³É¹¦£¡<br/>ÇëµÇÂ¼ÓÊÏä¼°Ê±¼¤»îÕËºÅ¡£';
+	        $msg = 'æ­å–œæ‚¨ï¼ŒéªŒè¯æˆåŠŸï¼<br/>è¯·ç™»å½•é‚®ç®±åŠæ—¶æ¿€æ´»è´¦å·ã€‚';
     	}else{
      	    $msg = $rs;
 	    }
