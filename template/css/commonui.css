@@ -2,7 +2,7 @@
 p.title{
     text-align: center;
     font-size: 30px;
-    font-weight: 550;
+    font-weight: 600;
     font-family: 微软雅黑;
     letter-spacing: 10px;
 }
@@ -29,3 +29,24 @@ p.title{
     height: 90px;
     width: 100%;
 }
+.userName{
+    font-size: 23px;
+    font-weight: 500;
+    font-family: 黑体;
+}
+.text{
+     font-family: 微软雅黑; 
+}
+.system{
+    font-size: 15px;
+    font-family: 华文细黑;
+}
+.form-list{
+    text-align: center;
+    margin: 10px;
+    width: 20%;
+    height: 30px;
+    position: relative;
+    left: 39%;
+} 
+

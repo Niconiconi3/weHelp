@@ -7,7 +7,7 @@
     position: absolute; top: 0px; left: 10px;
     width: 90px;
     height: 86px;
-    background-image: url(logo2.png);
+    background-image: url(icon/logo2.png);
     overflow: hidden;
     cursor: hand;
 }

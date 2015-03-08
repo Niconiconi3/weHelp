@@ -5,6 +5,7 @@
     <title id="register"></title>
     <meta http-equiv="content-type" content="text/html" charset="utf-8">
     <meta name="author" content="niconiconi-nju" >
+    <link rel="stylesheet" type="text/css" href=".\css\commonui.css"></link>
 
     <script>
 
@@ -47,29 +48,45 @@
             return true;
         }
     </script>
+    
+    <style>  
+    #left,#right   {float:left;border:1px   solid   red;   padding:10px;}  
+    </style>  
 </head>
 
 <body>
 
-    <div class="total-field">
+    <div id="register-field">
 
-    <h1 class="welcome-words-field">
+    <p class="title">
         欢迎加入我们
-    </h1>
+    </p>
     <form name="register" action="?" method="post" onsubmit="return check();">
-        <ul>
-            <li class="form-list">
-                <span>昵称</span>
+        <div>
+            <div class="form-list">
+                <span class="text">昵称</span>
                 <input id="username" type="text" name="username" onchange="checkUsername()" />
-            </li>
-            <li class="form-list">
-                <span>学号</span>
+            </div>
+            <div class="form-list">
+                <span class="text">学号</span>
                 <input id="studentid" type="text" name="studentid" onchange="checkStudentId()" />
-            </li>
-            <li class="form-list">
-                <input type="submit" value="join us" />
-            </li>
-        </ul>
+            </div>
+            <div style="margin: 0 auto;height:40px;position:relative; left:0;">
+                <div class="form-list">
+                    <span class="text">校邮</span>
+                    <input id="studentid" type="text" name="studentid" onchange="checkStudentId()" />
+                </div>
+                <div style="position:absolute; top:0px; left:60%; height:30px;" class="system">(学号@smail.nju.edu.cn)</div>
+            </div>
+            <div class="form-list">
+                <input type="submit" class="text" value="join us" />
+            </div>
+        </div>
+        <div style="width:30%; position:relative; left:42%; top:10px;">
+            <p class="system">我们将向您的邮箱发送验证邮件</p> 
+            <p class="system">请于48小时内<a href="http://mail.nju.edu.cn">登录邮箱</a>进行验证</p>
+        </div>
+        
 
     </form>
 
