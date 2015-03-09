@@ -1,0 +1,42 @@
+#ms_head{
+    width: 100%; height: 240px;
+}
+#ms_protrait{
+    margin:0 auto;
+    width: 140px;
+    height: 150px;
+    background-image: url(icon/logo3.png);
+    
+}
+
+
+#ms_names{
+    width: 100%; height: 90px;
+}
+
+#ms_friendsList{
+    position:relative; top:-30px;
+    height: 50px;
+}
+#ms_followerList{
+    width: 49%;   
+    float: left;
+    text-align: right;
+}
+#ms_fansList{
+    width: 49%;  
+    float: right;
+    text-align: left;
+}
+
+
+
+#ms_btns{
+    margin: 0 auto;
+    width: 100%;
+    height: 45px;
+    position: absolute; left: 0px; top: 240px;
+}
+#timelineBtn{float: left; width: 33%; height: 45px; text-align: center; border: solid 1px;}
+#myTaskBtn{float: left; width: 33%; height: 45px; text-align: center; border: solid 1px;}
+#userInfoBtn{float: left; width: 33%; height: 45px; text-align: center; border: solid 1px;}

@@ -1,10 +1,18 @@
 
-p.title{
+h1{
     text-align: center;
     font-size: 30px;
     font-weight: 600;
     font-family: 微软雅黑;
     letter-spacing: 10px;
+}
+h2{
+    font-size: 23px;
+    font-weight: 600;
+    font-family: 微软雅黑;
+}
+h3{
+    font-family: 微软雅黑;   
 }
 .roundBtn{
     -moz-border-radius: 10px;
@@ -25,7 +33,6 @@ p.title{
     opacity: 0;  
 }   
 .head{
-    top:0px;left: 0px;
     height: 90px;
     width: 100%;
 }
@@ -34,8 +41,14 @@ p.title{
     font-weight: 500;
     font-family: 黑体;
 }
+
 .text{
      font-family: 微软雅黑; 
+}
+.boldtext{
+    font-family: 黑体;
+    font-weight: 500;
+    font-size: 18px;
 }
 .system{
     font-size: 15px;
@@ -49,4 +62,6 @@ p.title{
     position: relative;
     left: 39%;
 } 
-
+.clear{
+    clear:both;
+}
