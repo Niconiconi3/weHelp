@@ -1,9 +1,11 @@
 <?php
-    include_once("connect.php");//连接数据库
+    include_once("constants.php");
     include_once("smtp.class.php");//邮件发送类
    
-    $username = stripslashes(trim($_POST['username']));
+    $username = stripslashes(trim($_POST['username']));      
+	echo "$username";   //测试用
     $studentid = trim($_POST[studentid]);
+    echo "studentid";	//测试用
     $query = mysql_query("select id from t_studentid where id = '$studentid'");
     $num = mysql_num_rows($query);
     if($num==1){
@@ -11,18 +13,24 @@
 	  exit;
 	}
 	//构造激活识别码：
-	$email = trim($_POST['email']);
-	$regtime = time();
+	$email = trim($_POST['email']);   
+	echo "$email";       //测试用    
+	$regtime = time();  
+    $fmtDate1 = date('Y-m-d H:i:s', $regtime);	
+	echo "$fmtDate1";     //测试用    
 	$token = md5($username,$studentid,$regtime);//创建激活识别码
-	$token_exptime = time()+60*60*48;//过期时间为48小时后
-	
+	echo  "$token";      //测试用   
+	$token_exptime = $regtime+60*60*48;//过期时间为48小时后
+	$fmtDate2 = date('Y-m-d H:i:s', $token_exptime);
+	echo "$fmtDate2";//测试用 
 	$sql = "insert into `t_studentid`(id,username,email,token,token_exptime,regtime)
 	values($studentid,$username,$email,$token,$token_exptime,$regtime)";
 	
 	mysql_query($sql);
+	echo 'added'.mysql_affected_rows($sql);  
 	
-	if(mysql_num_rows($sql)){
-	    $amtpserver = "smtp.163.com"; //SMTP服务器
+	if(mysql_affected_rows($sql)){
+	    $smtpserver = "smtp.163.com"; //SMTP服务器
 	    $smtpserverport = 25; //SMTP服务器端口，一般25
 	    $smtpusermail = "niconiconi_nju@163.com"; //SMTP服务器的用户邮箱
 	    $smtpuser = "niconiconi_nju@163.com";//SMTP服务器的用户账号
@@ -39,12 +47,13 @@
 	//发送邮件：
   	    $rs = $smtp->sendmail($smtpemailto,$smtpmailfrom,$emailsubject,$emailbody,$emailtype);
     	if($rs==1){
-	        $msg = '恭喜您，验证成功！<br/>请登录邮箱及时激活账号。';
+	        $msg = '恭喜您，验证邮件发送成功！<br/>请登录邮箱及时激活账号。';
     	}else{
      	    $msg = $rs;
 	    }
 	}
 	echo $msg;
+	
 ?>
    
  
