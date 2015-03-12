@@ -42,9 +42,22 @@
             }
         }
 
+        function checkEmail() {
+            var email = document.getElementById("email").value;
+            var reg = /^([a-zA-Z0-9_-])+@smail.nju.edu.cn$/;
+            if (reg.test(email)) {
+                return true;
+            }
+            else {
+                alert("请输入正确的校邮地址");
+                return false;
+            }
+        }
+
         function check() {
             if (!checkUsername()) return false;
             if (!checkStudentId()) return false;                            //后台应验证学号是否被注册过
+            if (!checkEmail()) return false;
             return true;
         }
     </script>
@@ -71,7 +84,7 @@
             <div style="margin: 0 auto;height:40px;position:relative; left:0;">
                 <div class="form-list">
                     <span class="text">校邮</span>
-                    <input id="studentid" type="text" name="studentid" onchange="checkStudentId()" />
+                    <input id="email" type="text" name="email" onchange="checkEmail()" />
                 </div>
                 <div style="position:absolute; top:0px; left:60%; height:30px;" class="system">(学号@smail.nju.edu.cn)</div>
             </div>
