@@ -1,21 +1,23 @@
 #hp_head{
     position: fixed;
+    margin: 0 auto;
     top: 0px; left: 0px;
 }
 
 
-#hp_protrait{
-    position: absolute; top: 0px; left: 10px;
-    width: 90px;
-    height: 86px;
-    background-image: url(icon/logo2.png);
-    overflow: hidden;
+
+#hp_addTask{
+    position: absolute; top: 20px; left:40px;
+    width: 70px;
+    height: 50px;
+    border:solid 1px;
+    background: white;
     cursor: hand;
 }
-#hp_protrait a{ display:block;width: 90px; height: 86px; cursor:hand; }
+#hp_addTask a{ display:block;  width:70px;  height:50px;  cursor:hand; }
 
 #hp_mailBox{
-    position: absolute; top: 20px; right:30px;
+    position: absolute; top: 20px; right: 40px;
     width: 70px;
     height: 50px;
     border:solid 1px;
@@ -26,7 +28,7 @@
 
 #hp_schboxs{
     margin: 0 auto;
-    position: absolute; top:90px; left: 0px;
+    position: fixed; top:90px; left: 0px;
     height: 45px;
     width: 100%;
 }
@@ -34,6 +36,7 @@
 #hp_body{
     position: absolute; top:135px; left:1px;
     width: 100%;
+    height: 800px;
 }
 
 #hp_sch1{float: left; width: 33%; height: 40px; line-height: 40px; font-size: 20px;}

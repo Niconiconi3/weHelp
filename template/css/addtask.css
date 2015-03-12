@@ -1,0 +1,79 @@
+#at_head{ border: solid 1px;}
+
+#at_taskInfo{
+    border: solid 1px;
+    height: 250px;
+}
+#at_tasktitle{
+    padding-left: 25px;   
+}
+#tasktitle{
+    padding-left: 10px;
+    position: absolute; left:140px;
+    width: 400px; height: 20px;
+}
+#at_tasktype{
+    margin: 0 auto;
+    padding-left: 25px; 
+    padding-top: 20px;
+}
+#tasktype{
+    display: inline-block; position: absolute; left: 140px;
+    width: 205px; height: 27px;
+    line-height: 25px;
+    font-family: 微软雅黑; 
+    font-size: 15px;
+}
+#at_tasktime{
+    padding-left: 25px;   
+    padding-top: 20px;
+}
+#tasktime{ position: absolute; left:140px;width: 200px; height: 20px;text-align: center;}
+#hour{ position: absolute; left: 360px; width:50px;  height: 27px; font-family: 微软雅黑; font-size: 15px;}
+#wtf{position: relative; left: 295px; top: 2px;}
+#min{position: absolute; left: 430px; width:50px;  height: 27px; font-family: 微软雅黑; font-size: 15px;}
+#at_taskreward{
+    padding-left: 25px;   
+}
+
+#at_taskreward{
+    padding-left: 25px; 
+    padding-top: 20px;
+}
+#taskreward{
+    position: absolute; left:140px;
+    width: 100px; height: 20px;
+}
+#wtf2{position: relative; left: 140px; top: 2px;}
+
+#at_taskDetail{
+    border: solid 1px;
+    height: 350px;
+    padding-right: 15px;
+}
+#at_taskDescription{
+    padding-left: 25px;
+    padding-right: 15px;
+}
+#taskdescription{
+    position: relative; top: 10px; height: 200px;
+    padding: 10px;
+    width: 98%;
+}
+
+#at_submit{
+    height: 100px;
+}
+#submitBtn{
+    width: 200px;
+    height: 40px;
+    margin: 30px;
+    float: right;
+    font-family: 微软雅黑; font-size: 15px;
+}
+#anonymityBox{
+    position: relative;
+    float: right;
+    margin-top: 40px;
+    font-family: 微软雅黑; font-size: 15px;
+}
