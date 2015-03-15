@@ -1,6 +1,5 @@
 <?php
 
-    include_once("connect.php");
 	include_once("constants.php");
 	
     $action = $_POST['action'];
@@ -16,6 +15,13 @@
     function modify_content(){
 		
 	    $content = $_POST['content'];
+		$con = mysql_connect(dbServer,dbUserName,dbPassword);
+        if (!$con){
+			die('Could not connect: ' . mysql_error());
+		}
+		if(mysql_select_db(database)===FALSE)
+			die("could not connect to database");
+	    mysql_query("set names 'utf8'");
 		$sql = "UPDATE `t_task` SET `task_content` = $content WHERE `task_no` = $task_no";
 		$result = mysql_query($sql);
 		if(!$result){
@@ -27,6 +33,13 @@
 	}
 	
 	function close_task(){
+		$con = mysql_connect(dbServer,dbUserName,dbPassword);
+        if (!$con){
+			die('Could not connect: ' . mysql_error());
+		}
+		if(mysql_select_db(database)===FALSE)
+			die("could not connect to database");
+	    mysql_query("set names 'utf8'");
 		$sql = "UPDATE `t_task` SET `task_status` = false WHERE `task_no` = $task_no";
 		$result = mysql_query($sql);
 		if(!$result){
@@ -39,6 +52,13 @@
 	
 	function stickie_task(){
 		$id = $_POST['studentid']; //当前编辑者的学号
+		$con = mysql_connect(dbServer,dbUserName,dbPassword);
+        if (!$con){
+			die('Could not connect: ' . mysql_error());
+		}
+		if(mysql_select_db(database)===FALSE)
+			die("could not connect to database");
+	    mysql_query("set names 'utf8'");
 		$str1 = "SELECT points from t_user where `id` =  $studentid";
 		$result = mysql_query($str);
 		$enough = false; //默认不够支付置顶
