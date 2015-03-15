@@ -55,7 +55,7 @@ class Smtp{
 
 		$body = ereg_replace("(^|(\r\n))(\.)", "\1.\3", $body);
 
-		$header .= "MIME-Version:1.0\r\n";
+		//$header .= "MIME-Version:1.0\r\n";
 
 		if ($mailtype == "HTML") {
 			$header .= "Content-Type:text/html\r\n";

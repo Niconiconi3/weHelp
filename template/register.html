@@ -28,10 +28,10 @@
 
         function checkStudentId() {                                                  //如果可以导入教务网数据验证学号更好
             var length = document.getElementById("studentid").value.length;
-            if (length!=9) {
-                alert("请输入正确的学号");
+            if (length!=9) {;
                 return false;
             }
+            alert("请输入正确的学号")
             else {
                 if (isNaN(document.getElementById("studentid").value)) {
                     alert("请输入正确的学号");
