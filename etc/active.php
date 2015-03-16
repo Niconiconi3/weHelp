@@ -1,9 +1,19 @@
 <?php
-   include_once("connect.php");
+/* 此段代码用于点击邮箱链接后验证激活码
+   需使用t_studentid
+*/
+   include_once("constants.php");
    
    $verify = stripslashes(trim($_GET['verify']));
    $nowtime = time();
    
+   $con = mysql_connect(dbServer,dbUserName,dbPassword);
+    if (!$con){
+	    die('Could not connect: ' . mysql_error());
+    }
+	if(mysql_select_db(database)===FALSE)
+		die("could not connect to database");
+    mysql_query("set names 'utf8'");
    $query = mysql_query("select id, token_exptime from t_studentid where `status`=0 and `token` = '$verify'";)
    $row = mysql_fetch_array($query);
    if($row){

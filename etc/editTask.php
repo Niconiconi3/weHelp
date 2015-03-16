@@ -1,14 +1,17 @@
 <?php
-
+/*
+此段代码用于编辑任务，包括修改内容，关闭任务，置顶任务
+需要使用$action(可选值为modify_content,close_task,stickie_task),$content,$task_no,$studentid
+*/
 	include_once("constants.php");
 	
     $action = $_POST['action'];
 	$task_no = $_POST['task_no'];
 	if($action=='modify_Content'){
 		modify_content();
-	}elseif($action=='closeTask'){
+	}elseif($action=='close_task'){
 		close_task();
-	}elseif($action=='stickieTask'){
+	}elseif($action=='stickie_task'){
 		stickie_task();
 	}
 	

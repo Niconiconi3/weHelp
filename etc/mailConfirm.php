@@ -1,4 +1,8 @@
 <?php
+/* 此段代码用于向邮箱发送激活码
+   需用到$username, $studentid, t_studentid, email
+   t_studentid(id,username,email,token,token_exptime,status,regtime)
+*/
     include_once("constants.php");
     include_once("smtp.class.php");//邮件发送类
    
@@ -6,6 +10,14 @@
 	echo "$username";   //测试用
     $studentid = trim($_POST[studentid]);
     echo "studentid";	//测试用
+	
+	$con = mysql_connect(dbServer,dbUserName,dbPassword);
+    if (!$con){
+	    die('Could not connect: ' . mysql_error());
+    }
+	if(mysql_select_db(database)===FALSE)
+		die("could not connect to database");
+    mysql_query("set names 'utf8'");
     $query = mysql_query("select id from t_studentid where id = '$studentid'");
     $num = mysql_num_rows($query);
     if($num==1){
