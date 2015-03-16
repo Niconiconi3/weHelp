@@ -6,6 +6,7 @@
 */
     include_once("constants.php");
     $reply_content = stripcslashes(trim($_POST['reply_content']));
+	session_start();
 	$author = $_SESSION['current_user'];   //获得当前登陆用户
 	$task_id = $_POST['task_id'];           //被评论的任务
 	$time = time();

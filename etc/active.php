@@ -6,6 +6,7 @@
    
    $verify = stripslashes(trim($_GET['verify']));
    $nowtime = time();
+   $fmt = date('Y-m-d H:i:s', $nowtime);
    
    $con = mysql_connect(dbServer,dbUserName,dbPassword);
     if (!$con){
@@ -14,18 +15,20 @@
 	if(mysql_select_db(database)===FALSE)
 		die("could not connect to database");
     mysql_query("set names 'utf8'");
-   $query = mysql_query("select id, token_exptime from t_studentid where `status`=0 and `token` = '$verify'";)
+   $query = mysql_query("select id, token_exptime from t_studentid where `status`=0 and `token` = '$verify'");
    $row = mysql_fetch_array($query);
-   if($row){
-        if($nowtime>$row['token_exptime']){
+   
+    if($row){ 
+        if($fmt>$row['token_exptime']){
 	       $msg = '您的激活有效期已过，请登录您的账号重新发送激活邮件。';
 		}else{
-		   mysql_query("update t_studentid set status=1 where id=".$row['id']);
-		   if(mysql_affected_rows($link)!=1) die(0);
-		   $msg = '激活成功';
+		   mysql_query("update `t_studentid` set status=1 where id=".$row['id']);
+		 //echo mysql_affected_rows($con).mysql_error();
+		   if(mysql_affected_rows($con)!=1) die(0);
+		   echo '激活成功';
 		}
-    else{
-	     $msg = 'error';
     }
-	echo $msg;
+	else{
+	    echo '激活失败。';
+	}
 ?>

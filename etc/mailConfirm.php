@@ -6,9 +6,10 @@
     include_once("constants.php");
     include_once("smtp.class.php");//邮件发送类
    
+    date_default_timezone_set('Asia/Shanghai'); 
+	
     $username = stripslashes(trim($_POST['username']));      
     $studentid = trim($_POST['studentid']);
-	
 	$con = mysql_connect(dbServer,dbUserName,dbPassword);
     if (!$con){
 	    die('Could not connect: ' . mysql_error());
@@ -26,17 +27,20 @@
 	//构造激活识别码：
 	$email = trim($_POST['email']);   
 	$regtime = time();  
-    $regtime = date('Y-m-d H:i:s', $regtime);
+    $date1 = date('Y-m-d H:i:s', $regtime);
+	echo $date1;
 	$temp = $studentid.$regtime;
 	$token = md5($temp,false);//创建激活识别码  
 	$token_exptime = $regtime+60*60*48;//过期时间为48小时后
-	$token_exptime = date('Y-m-d H:i:s', $token_exptime);
-	$sql = "insert into `t_studentid`(id,username,email,token,token_exptime,regtime)
-	values($studentid,$username,$email,$token,$token_exptime,$regtime)";
+	$date2 = date('Y-m-d H:i:s', $token_exptime);
+	echo $date2;
+	$sql = "insert into `t_studentid` (id,username,email,token,token_exptime,regtime)
+	values('$studentid', '$username', '$email' ,'$token' ,'$date2', '$date1')";
 	
 	mysql_query($sql);  
+	echo mysql_affected_rows($con).mysql_error();
 	
-	if(mysql_affected_rows($con)){
+	if(mysql_affected_rows($con)==1){
 	    $smtpserver = "smtp.163.com"; //SMTP服务器
 	    $smtpserverport = 25; //SMTP服务器端口，一般25
 	    $smtpusermail = "niconiconi_nju@163.com"; //SMTP服务器的用户邮箱
@@ -49,7 +53,7 @@
     	$emailsubject = "举手之劳用户账号激活";//邮件主题
 		$emailsubject = "=?UTF-8?B?".base64_encode($emailsubject)."?=";
 	//邮件主体内容：
-    	$emailbody = "亲爱的".$username.":<br/>感谢您在我平台注册新账号。<br/>请点击链接激活您的账号。<br/><a href=http://www.baidu.com target=_blank>http://www.wehelp.com/demo/register/active.php?verify=".$token."</a><br/>
+    	$emailbody = "亲爱的".$username.":<br/>感谢您在我平台注册新账号。<br/>请点击链接激活您的账号。<br/><a href=http://172.25.133.6/active.php?verify=".$token." target=_blank>http://www.wehelp.com/demo/register/active.php?verify=".$token."</a><br/>
 	如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问，该链接48小时内有效。
 	<br/>如果此次激活请求非你本人所发，请忽略本邮件。<br/><p style='text-align:right'>-------- weHelp团队敬上</p>";
 	//发送邮件：
