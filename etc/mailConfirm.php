@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /* 此段代码用于向邮箱发送激活码
    需用到$username, $studentid, t_studentid, email
    t_studentid(id,username,email,token,token_exptime,status,regtime)
@@ -7,9 +7,7 @@
     include_once("smtp.class.php");//邮件发送类
    
     $username = stripslashes(trim($_POST['username']));      
-	echo "$username";   //测试用
-    $studentid = trim($_POST[studentid]);
-    echo "studentid";	//测试用
+    $studentid = trim($_POST['studentid']);
 	
 	$con = mysql_connect(dbServer,dbUserName,dbPassword);
     if (!$con){
@@ -18,6 +16,7 @@
 	if(mysql_select_db(database)===FALSE)
 		die("could not connect to database");
     mysql_query("set names 'utf8'");
+	header("Content-Type: text/html; charset=utf-8");
     $query = mysql_query("select id from t_studentid where id = '$studentid'");
     $num = mysql_num_rows($query);
     if($num==1){
@@ -26,22 +25,18 @@
 	}
 	//构造激活识别码：
 	$email = trim($_POST['email']);   
-	echo "$email";       //测试用    
 	$regtime = time();  
-    $fmtDate1 = date('Y-m-d H:i:s', $regtime);	
-	echo "$fmtDate1";     //测试用    
-	$token = md5($username,$studentid,$regtime);//创建激活识别码
-	echo  "$token";      //测试用   
+    $fmtDate1 = date('Y-m-d H:i:s', $regtime);
+	$temp = $studentid.$regtime;
+	$token = md5($temp,false);//创建激活识别码  
 	$token_exptime = $regtime+60*60*48;//过期时间为48小时后
 	$fmtDate2 = date('Y-m-d H:i:s', $token_exptime);
-	echo "$fmtDate2";//测试用 
 	$sql = "insert into `t_studentid`(id,username,email,token,token_exptime,regtime)
 	values($studentid,$username,$email,$token,$token_exptime,$regtime)";
 	
-	mysql_query($sql);
-	echo 'added'.mysql_affected_rows($sql);  
+	mysql_query($sql);  
 	
-	if(mysql_affected_rows($sql)){
+	if(mysql_affected_rows($con)){
 	    $smtpserver = "smtp.163.com"; //SMTP服务器
 	    $smtpserverport = 25; //SMTP服务器端口，一般25
 	    $smtpusermail = "niconiconi_nju@163.com"; //SMTP服务器的用户邮箱
@@ -52,19 +47,19 @@
      	$smtpemailto = $email; //邮件接收方
     	$smtpmailfrom = $smtpusermail; //发送邮件方
     	$emailsubject = "举手之劳用户账号激活";//邮件主题
+		$emailsubject = "=?UTF-8?B?".base64_encode($emailsubject)."?=";
 	//邮件主体内容：
-    	$emailbody = "亲爱的".$username.":<br/>感谢您在我平台注册新账号。<br/>请点击链接激活您的账号。<br/><a href='http://www.wehelp.com/demo/register/active.php?verify=".$token"'target='_blank'>http://www.wehelp.com/demo/register/active.php?verify=".$token."</a><br/>
+    	$emailbody = "亲爱的".$username.":<br/>感谢您在我平台注册新账号。<br/>请点击链接激活您的账号。<br/><a href=http://www.baidu.com target=_blank>http://www.wehelp.com/demo/register/active.php?verify=".$token."</a><br/>
 	如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问，该链接48小时内有效。
 	<br/>如果此次激活请求非你本人所发，请忽略本邮件。<br/><p style='text-align:right'>-------- weHelp团队敬上</p>";
 	//发送邮件：
   	    $rs = $smtp->sendmail($smtpemailto,$smtpmailfrom,$emailsubject,$emailbody,$emailtype);
     	if($rs==1){
-	        $msg = '恭喜您，验证邮件发送成功！<br/>请登录邮箱及时激活账号。';
+	        echo '恭喜您，验证邮件发送成功！<br/>请登录邮箱及时激活账号。';
     	}else{
-     	    $msg = $rs;
+     	    echo $rs;
 	    }
 	}
-	echo $msg;
 	
 ?>
    
