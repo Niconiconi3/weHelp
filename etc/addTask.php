@@ -3,13 +3,25 @@
 	 *写入任务
 	 *
 	 */
-	 
+	 /*
+	 task 表名：task
+	 ID:ID 
+	 标题：title
+	 内容：content
+	 结束时间：validity
+	 作者学号：author
+	 任务类型：type
+	 是否置顶：stickie
+	 悬赏积分：point
+	 是否匿名：anonymous
+	 发布时间：time
+	 状态：status
+	 */
 	//从表单获取数据
-	$ID = $_POST['ID'];					//任务ID
 	$title = $_POST['title'];			//标题
 	$content = $_POST['content'];		//内容
-	$validity = $_POST['validity'];		//有效时间
-	$author = $_POST['author'];			//作者
+	$validity = $_POST['validity'];		//结束时间
+	//$author = $_POST['author'];		//作者
 	$type = $_POST['type'];				//类型
 	$sticky = $_POST['sticky'];			//是否置顶
 	$point = $_POST['point'];			//悬赏积分
@@ -29,7 +41,7 @@
 	mysql_query("set names 'utf8'");	
 	
 	//插入注册信息
-	$sql = "insert into task (ID,title,content,validity,author,type,sticky,point,anonymous,time,state )values('$ID','$title','$content','$validity','$author','$type','$sticky','$point','$anonymous','$time','$state')";
+	$sql = "insert into task (ID,title,content,validity,author,type,stickie,points,anonymous,time,status )values('$ID','$title','$content','$validity','$author','$type','$sticky','$point','$anonymous','$time','$state')";
 	$sql_insert = mysql_query($sql);
 	
 	

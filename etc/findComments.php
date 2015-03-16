@@ -6,7 +6,7 @@
 	 $taskID = $_POST['taskID'];		
 	 
 	 //创建数据库语句
-	 $sql = "select * from t_comment where taskID = '$taskID'";
+	 $sql = "select * from comment where task_id = '$taskID'";
 	 
 	//验证数据库服务器连接
 	if(($con=mysql_connect(dbServer,dbUserName,dbPassword))===FALSE)
@@ -22,7 +22,7 @@
 		die("could not query database");
 	
 	while($row = mysql_fetch_array($result)){
-		echo $row['content'];
+		echo $row['reply'];
 		echo "<br />";
 	}
 
