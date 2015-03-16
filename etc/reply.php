@@ -2,6 +2,7 @@
 /*
    此段代码用于在任务下添加回复
    需要用到$reply_content,$author（回复的作者）,$task_id,
+   comment(author_id(回复者的), task_id, reply（内容）, time（回复时间）)
 */
     include_once("constants.php");
     $reply_content = stripcslashes(trim($_POST['reply_content']));
@@ -17,8 +18,8 @@
 	if(mysql_select_db(database)===FALSE)
 		die("could not connect to database");
     mysql_query("set names 'utf8'");
-	$sql = "INSERT INTO t_comment(author, task_name, reply, time) 
-	values($author,$task_name, $reply_content, $time)";
+	$sql = "INSERT INTO comment(author_id, task_id, reply, time) 
+	values($author,$task_id, $reply_content, $time)";
 	
 	$result = mysql_query($sql);
 	if($result){

@@ -6,7 +6,7 @@
 	include_once("constants.php");
 	
     $action = $_POST['action'];
-	$task_no = $_POST['task_no'];
+	$task_id = $_POST['task_id'];
 	if($action=='modify_Content'){
 		modify_content();
 	}elseif($action=='close_task'){
@@ -25,7 +25,7 @@
 		if(mysql_select_db(database)===FALSE)
 			die("could not connect to database");
 	    mysql_query("set names 'utf8'");
-		$sql = "UPDATE `t_task` SET `task_content` = $content WHERE `task_no` = $task_no";
+		$sql = "UPDATE `task` SET `task_content` = $content WHERE `id` = $task_id";
 		$result = mysql_query($sql);
 		if(!$result){
 			echo '修改任务内容失败，请稍后尝试';
@@ -43,7 +43,7 @@
 		if(mysql_select_db(database)===FALSE)
 			die("could not connect to database");
 	    mysql_query("set names 'utf8'");
-		$sql = "UPDATE `t_task` SET `task_status` = false WHERE `task_no` = $task_no";
+		$sql = "UPDATE `task` SET `status` = false WHERE `id` = $task_id";
 		$result = mysql_query($sql);
 		if(!$result){
 			echo 'r任务关闭失败，请稍后尝试';
@@ -62,7 +62,7 @@
 		if(mysql_select_db(database)===FALSE)
 			die("could not connect to database");
 	    mysql_query("set names 'utf8'");
-		$str1 = "SELECT points from t_user where `id` =  $studentid";
+		$str1 = "SELECT points from user where `id` =  $studentid";
 		$result = mysql_query($str);
 		$enough = false; //默认不够支付置顶
 		$remain_points = 0;
@@ -75,9 +75,9 @@
 		}
 		if($enough){
 			//如果置顶成功，设置stickie属性为true,更改积分
-			$str2 = "UPDATE `t_task` SET `stickie` = true WHERE `task_no` = $task_no";
-			$str3 = "UPDATE `t_user` SET `points` = $remain_points 
-			WHERE `task_no` = $task_no";
+			$str2 = "UPDATE `task` SET `stickie` = true WHERE `id` = $task_id";
+			$str3 = "UPDATE `user` SET `points` = $remain_points 
+			WHERE `id` = $task_id";
 		    $result = mysql_query($str2)&&mysql_query($str3);
 			if($result){
 				echo '置顶成功！';

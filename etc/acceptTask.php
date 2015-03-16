@@ -5,7 +5,7 @@
   站内信功能完成后，应补充向发布者发送消息提醒确认。
   需要task_id，author_id(任务发布者),exec_id（接受者）,表t_task,标识action（accept_task,exec_confirm,author_confirm）
   (status是0,1,2？？)
-  t_process(task_id, author, executor, author_confirm, exec_confirm, done) 后三个默认false
+  process(task_id, author, executor, author_confirm, exec_confirm, done) 后三个默认false
   author_confirm值为false或true
   exec_confirm值为true或false
   若author_confirm为true，则done为true
