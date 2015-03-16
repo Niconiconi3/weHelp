@@ -26,11 +26,11 @@
 	//构造激活识别码：
 	$email = trim($_POST['email']);   
 	$regtime = time();  
-    $fmtDate1 = date('Y-m-d H:i:s', $regtime);
+    $regtime = date('Y-m-d H:i:s', $regtime);
 	$temp = $studentid.$regtime;
 	$token = md5($temp,false);//创建激活识别码  
 	$token_exptime = $regtime+60*60*48;//过期时间为48小时后
-	$fmtDate2 = date('Y-m-d H:i:s', $token_exptime);
+	$token_exptime = date('Y-m-d H:i:s', $token_exptime);
 	$sql = "insert into `t_studentid`(id,username,email,token,token_exptime,regtime)
 	values($studentid,$username,$email,$token,$token_exptime,$regtime)";
 	
