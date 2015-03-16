@@ -1,7 +1,7 @@
 <?php
 /*
 此段代码用于编辑任务，包括修改内容，关闭任务，置顶任务
-需要使用$action(可选值为modify_content,close_task,stickie_task),$content,$task_no,$studentid
+需要使用$action(可选值为modify_task,close_task,stickie_task),$content,$points,$有效期，$task_no,$studentid
 */
 	include_once("constants.php");
 	

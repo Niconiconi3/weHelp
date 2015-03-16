@@ -1,12 +1,12 @@
 <?php
 /*
    此段代码用于在任务下添加回复
-   需要用到$reply_content,$author（回复的作者）,$task_name,
+   需要用到$reply_content,$author（回复的作者）,$task_id,
 */
     include_once("constants.php");
     $reply_content = stripcslashes(trim($_POST['reply_content']));
 	$author = $_SESSION['current_user'];   //获得当前登陆用户
-	$task_name = $_POST['task'];           //被评论的任务
+	$task_id = $_POST['task_id'];           //被评论的任务
 	$time = time();
 	
 	//reply唯一id auto increment
