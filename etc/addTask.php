@@ -16,7 +16,16 @@
 	 是否匿名：anonymous
 	 发布时间：time
 	 状态：status
+	 执行者：executor
+	 执行者确认时间：confirmTime
+	 
+	 任务状态：
+	 0：已发表且未被接受
+	 1：已接受
+	 2：执行者确认已完成
+	 3：发布者确认
 	 */
+	 
 	//从表单获取数据
 	$title = $_POST['title'];			//标题
 	$content = $_POST['content'];		//内容

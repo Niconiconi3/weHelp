@@ -6,11 +6,15 @@ user 表名：user
 openID：openID
 学号：stuNum
 邮箱：mailbox
+积分：points
 */
+	session_start();
 	require('constants.php');
 
 	//注册
 	function register($user,$openID,$stuNum,$mail){
+		
+		$_SESSION['stuNum'] = $stuNum;
 		
 		//验证数据库服务器连接
 		if(($con=mysql_connect(dbServer,dbUserName,dbPassword))===FALSE)
