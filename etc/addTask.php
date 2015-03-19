@@ -25,15 +25,26 @@
 	 2：执行者确认已完成
 	 3：发布者确认
 	 */
-	 
+	 session_start();
+	require('constants.php');
+	
+	if(isset($_SESSION['stuNum']))
+	$author = $_SESSION['stuNum'];
+	else
+		require_once(login.php)
+	
 	//从表单获取数据
 	$title = $_POST['title'];			//标题
 	$content = $_POST['content'];		//内容
 	$validity = $_POST['validity'];		//结束时间
-	//$author = $_POST['author'];		//作者
+				//作者
 	$type = $_POST['type'];				//类型
 	$sticky = $_POST['sticky'];			//是否置顶
 	$point = $_POST['point'];			//悬赏积分
+	
+	$anonymous = false;
+	
+	if(isset($_POST['anonymous']))
 	$anonymous = $_POST['anonymous'];	//是否匿名
 	
 	
