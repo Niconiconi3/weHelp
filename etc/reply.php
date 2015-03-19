@@ -2,7 +2,7 @@
 /*
    此段代码用于在任务下添加回复
    需要用到$reply_content,$author（回复的作者）,$task_id,
-   comment(author_id(回复者的), task_id, reply（内容）, time（回复时间）)
+   comment(comment_id, author_id(回复者的), task_id, reply（内容）, time（回复时间）)
 */
     include_once("constants.php");
     $reply_content = stripcslashes(trim($_POST['reply_content']));

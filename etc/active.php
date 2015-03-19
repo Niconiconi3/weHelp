@@ -38,7 +38,7 @@ openID：openID
 		   $openID = $_SESSION['openID'];
 		   $stuNum = $row['id'];
 		   $mail = $row['email'];
-		   $sql_insert = mysql_query("insert into `user` (user,openID,stuNum,mailBox)values('$user','$openID','$stuNum','$mail')");
+		   $sql_insert = mysql_query("insert into `user` (user,openID,stuNum,mailBox,points)values('$user','$openID','$stuNum','$mail','INI_POINTS')");
 		   //mysql_query("delete from `t_studentid` where id=".$row['id']);
 		   echo '激活成功';
 		}
