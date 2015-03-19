@@ -1,7 +1,16 @@
 <?php
 /* 此段代码用于点击邮箱链接后验证激活码
-   需使用t_studentid
+   需使用t_studentid $openid
 */
+/*
+user 表名：user
+用户名：user
+openID：openID
+学号：stuNum
+邮箱：mailbox
+积分：points
+*/
+   session_start();
    include_once("constants.php");
    
    $verify = stripslashes(trim($_GET['verify']));
@@ -15,7 +24,7 @@
 	if(mysql_select_db(database)===FALSE)
 		die("could not connect to database");
     mysql_query("set names 'utf8'");
-   $query = mysql_query("select id, token_exptime from t_studentid where `status`=0 and `token` = '$verify'");
+   $query = mysql_query("select from t_studentid where `status`=0 and `token` = '$verify'");
    $row = mysql_fetch_array($query);
    
     if($row){ 
@@ -23,8 +32,14 @@
 	       $msg = '您的激活有效期已过，请登录您的账号重新发送激活邮件。';
 		}else{
 		   mysql_query("update `t_studentid` set status=1 where id=".$row['id']);
-		 //echo mysql_affected_rows($con).mysql_error();
-		   if(mysql_affected_rows($con)!=1) die(0);
+	       //echo mysql_affected_rows($con).mysql_error();
+		   $_SESSION['stuNum'] = $row['id'];
+		   $user = $row['username'];
+		   $openID = $_SESSION['openID'];
+		   $stuNum = $row['id'];
+		   $mail = $row['email'];
+		   $sql_insert = mysql_query("insert into `user` (user,openID,stuNum,mailBox)values('$user','$openID','$stuNum','$mail')");
+		   //mysql_query("delete from `t_studentid` where id=".$row['id']);
 		   echo '激活成功';
 		}
     }
