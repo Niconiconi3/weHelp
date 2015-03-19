@@ -12,6 +12,13 @@
     position: absolute; left:140px;
     width: 400px; height: 20px;
 }
+#stickyBox{
+    position: relative;
+    left: 500px;
+    margin-top: 40px;
+    font-family: 微软雅黑; font-size: 15px;
+}
+
 #at_tasktype{
     margin: 0 auto;
     padding-left: 25px; 
@@ -28,7 +35,7 @@
     padding-left: 25px;   
     padding-top: 20px;
 }
-#tasktime{ position: absolute; left:140px;width: 200px; height: 20px;text-align: center;}
+#taskdate{ position: absolute; left:140px;width: 200px; height: 20px;text-align: center;}
 #hour{ position: absolute; left: 360px; width:50px;  height: 27px; font-family: 微软雅黑; font-size: 15px;}
 #wtf{position: relative; left: 295px; top: 2px;}
 #min{position: absolute; left: 430px; width:50px;  height: 27px; font-family: 微软雅黑; font-size: 15px;}

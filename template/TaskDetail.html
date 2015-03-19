@@ -9,18 +9,68 @@
 
 <link rel="stylesheet" type="text/css" href=".\css\taskdetail.css"></link>
 <link rel="stylesheet" type="text/css" href=".\css\commonui.css"></link>
+<link rel="stylesheet" type="text/css" href=".\css\buttons.css"></link>
+<style type="text/css"></style>
 
-<style type="text/css">
+<script type="text/javascript">
+    function getSltValue() {
+        
+        var operation = document.getElementById("operation").value;
+        var myForm = document.getElementById("op");
+        var task_id = document.getElementById("taskId").value;
+        if(operation=='close_task'){
+            if(confirm("是否确认关闭该任务？")){
+                myForm.submit();
+            }
+        }
+        if(operation=='stickie_task'){
+            if(confirm("置顶任务会额外消耗积分，是否置顶？"))
+                myForm.submit();
+        }
+        if(operation=='modify_task'){
+            SetCookie("taskID",task_id,1);
+            window.location.href='EditTask.html';
+        }
+        
+    }
+    
+    function SetCookie(cookieName,cookieValue,nDays) {
+        /*当前日期*/
+        alert("");
+        var today = new Date();
+        /*Cookie过期时间*/
+        var expire = new Date();
+        /*如果未设置nDays参数或者nDays为0，取默认值1*/
+        if(nDays == null || nDays == 0) nDays = 1;
+        /*计算Cookie过期时间*/
+        expire.setTime(today.getTime() + 3600000 * 24 * nDays);
+        /*设置Cookie值*/
+        alert("");
+        document.cookie = cookieName + "=" + escape(cookieValue)+ ";expires=" + expire.toGMTString();
+    }
+    
+</script>
 
-</style>
 </head>
 
 <body>
 <div id="td_head" class="head">
     <h1>任务详情</h1>
     <div class="backBtn"><a></a></div>
-    <div id="td_moreOperation"></div>
+    <form id="op" action="editTask.php" method="post">
+       <input type="hidden" name="studentid" value="<?php session_start();$author = $_SESSION['stuNum']; ?>" style="display:none;"></input>
+       <input id="taskId" type="hidden" name="task_id" style="display:none;" value=1234 ></input>
+        <div id="td_moreOperation" class="ui-select">
+            <span>更多操作</span>
+            <select id="operation" name="action" onchange="getSltValue()">  
+                <option value="modify_task">编辑任务</option>  
+                <option value="close_task">关闭任务</option>  
+                <option value="stickie_task">置顶任务</option>  
+            </select>  
+        </div>
+    </form>
 </div>
+
 <div id="td_promulgator">
     <div id="td_protrait">
         <a href=""></a>
@@ -42,13 +92,17 @@
      <p class="text" style="padding-right: 2cm;">这里是任务详情描述让我试试它能不能换行换行吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦能换行就好</p>
      
 </div>
+
 <div id="td_reply">
     <p class="text">这里是回复们</p>
 </div>
-<div id="td_addReply">
-    
-</div>
 
+<div id="td_addReply">
+    <h3>发表回复</h3>
+    <textarea id="replyBox" type="text" name="content"></textarea>
+    <input class="ghbutton" id="replyBtn" type="submit"  value="回复" ></input>
+</div>
+<div style="height:90px"></div>
 <div id="td_operation">
     
 </div>

@@ -1,6 +1,15 @@
 #td_head{ border: solid 1px;}
+#td_moreOperation{
+    width: 100px;
+    height: 50px;
+    font-family: 微软雅黑; font-size: 15px;
+    float: right;
+    position: relative; top: -60px; right: 20px;
+    line-height: 50px;
+}
+#td_moreOperation select{height: 50px;}
 #td_promulgator{
-    width: 100%; height: 90px;
+    height: 90px;
     border: solid 1px;
 }
 #td_protrait{
@@ -22,8 +31,7 @@
 }
 
 #td_taskInfo{
-    
-    width: 100%; height: 180px;
+    height: 180px;
     line-height: 10px;
     padding-left: 15px;
     border: solid 1px;
@@ -31,15 +39,32 @@
 
 #td_taskDescription{
     
-    width: 100%;
     height: auto;
     border: solid 1px;
     padding-left: 15px;
 }
 
 #td_reply{
-    width: 100%;
     height: auto;
     border: solid 1px;
     padding-left: 15px;
 }
+
+#td_addReply{
+     height: 300px;
+    border: solid 1px;
+    padding-left: 15px;
+}
+#replyBox{
+    position: relative; height: 100px;
+    padding: 10px;
+    width: 97%;   
+}
+#replyBtn{
+    width: 100px;
+    height: 35px;
+    margin: 20px;
+    float: right;
+    font-family: 微软雅黑; font-size: 15px;
+}
+
