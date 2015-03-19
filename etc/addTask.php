@@ -40,10 +40,13 @@
 	//从表单获取数据
 	$title = $_POST['title'];			//标题
 	$content = $_POST['content'];		//内容
-	$validity = $_POST['validity'];		//结束时间
-				//作者
+	$validity = $_POST['date'].$_POST['hour'].$_POST['minute'];		//结束时间
 	$type = $_POST['type'];				//类型
+	$sticky = false;
+	
+	if(isset($_POST['sticky']))
 	$sticky = $_POST['sticky'];			//是否置顶
+	
 	$point = $_POST['point'];			//悬赏积分
 	
 	$anonymous = false;
@@ -65,7 +68,7 @@
 	mysql_query("set names 'utf8'");	
 	
 	//插入注册信息
-	$sql = "insert into task (ID,title,content,validity,author,type,stickie,point,anonymous,time,status )values('$ID','$title','$content','$validity','$author','$type','$sticky','$point','$anonymous','$time','$state')";
+	$sql = "insert into task (title,content,validity,author,type,stickie,point,anonymous,time,status )values('$title','$content','$validity','$author','$type','$sticky','$point','$anonymous','$time','$state')";
 	$sql_insert = mysql_query($sql);
 	
 	
