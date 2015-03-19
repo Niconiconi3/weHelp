@@ -26,12 +26,16 @@
 	 3：发布者确认
 	 */
 	 session_start();
+	 //fake session 
+	 $_SESSION['stuNum'] = 131250111;
 	require('constants.php');
 	
 	if(isset($_SESSION['stuNum']))
 	$author = $_SESSION['stuNum'];
-	else
-		require_once(login.php)
+	else{
+		require_once(login.php);
+		exit;
+	}
 	
 	//从表单获取数据
 	$title = $_POST['title'];			//标题
@@ -61,7 +65,7 @@
 	mysql_query("set names 'utf8'");	
 	
 	//插入注册信息
-	$sql = "insert into task (ID,title,content,validity,author,type,stickie,points,anonymous,time,status )values('$ID','$title','$content','$validity','$author','$type','$sticky','$point','$anonymous','$time','$state')";
+	$sql = "insert into task (ID,title,content,validity,author,type,stickie,point,anonymous,time,status )values('$ID','$title','$content','$validity','$author','$type','$sticky','$point','$anonymous','$time','$state')";
 	$sql_insert = mysql_query($sql);
 	
 	
