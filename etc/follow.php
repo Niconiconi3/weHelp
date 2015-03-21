@@ -2,7 +2,7 @@
 /*
    此段代码用于访问他人主页时的关注处理，$action包括follow（加关注），cancel（取消关注），remove（移除粉丝）。
    需要用到$owner_id(被访问主页的用户id),$action
-   follower($owner_id(回复者的), visitor_id, status)
+   follower($owner_id, visitor_id, status)
    status分为0,1
    0为申请关注
    1为已关注成功
@@ -47,7 +47,7 @@
      	if(mysql_select_db(database)===FALSE)
 	    	die("could not connect to database");
         mysql_query("set names 'utf8'");
-	    $sql = "DELETE FROM `follower` WHERE owner_id =$owner_id AND visitor_id=$visitor_id";
+	    $sql = "DELETE FROM `follower` WHERE owner_id = '$owner_id' AND visitor_id = '$visitor_id'";
 		$result = mysql_query($sql);
 		if(mysql_affected_rows($result))
 			echo "取消关注成功！";
@@ -63,7 +63,7 @@
      	if(mysql_select_db(database)===FALSE)
 	    	die("could not connect to database");
         mysql_query("set names 'utf8'");
-	    $sql = "DELETE FROM `follower` WHERE owner_id =$visitor_id AND visitor_id=$owner_id";
+	    $sql = "DELETE FROM `follower` WHERE owner_id = '$visitor_id' AND visitor_id = '$owner_id'";
 		$result = mysql_query($sql);
 		if(mysql_affected_rows($result))
 			echo "移除粉丝成功！您也可以选择将此用户加入黑名单，不再接受该用户的好友申请。";
