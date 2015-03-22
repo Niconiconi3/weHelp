@@ -1,10 +1,16 @@
+
+
+    
 <html>
 <body>
+<?php echo $_POST["title"]; ?> <br>
+<?php echo $_POST["type"]; ?> <br>
+<?php echo $_POST["validity"]; ?> <br>
+<?php    $anonymous = "false";	?>
+<?php $anonymous = $_POST["anonymous"]; ?>
+<?php echo $anonymous; ?> <br>
 
-Title <?php echo $_POST["title"]; ?><br>
-Type: <?php echo $_POST["type"]; ?><br>
-Date: <?php echo $_POST["date"]; ?><br>
-Content: <?php echo $_POST["content"]; ?><br>
-anonymous: <?php echo $_POST["anonymous"]; ?><br>
+
+
 </body>
 </html>
