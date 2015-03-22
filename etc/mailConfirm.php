@@ -28,17 +28,14 @@
 	$email = trim($_POST['email']);   
 	$regtime = time();  
     $date1 = date('Y-m-d H:i:s', $regtime);
-	echo $date1;
 	$temp = $studentid.$regtime;
 	$token = md5($temp,false);//创建激活识别码  
 	$token_exptime = $regtime+60*60*48;//过期时间为48小时后
 	$date2 = date('Y-m-d H:i:s', $token_exptime);
-	echo $date2;
 	$sql = "insert into `t_studentid` (id,username,email,token,token_exptime,regtime)
 	values('$studentid', '$username', '$email' ,'$token' ,'$date2', '$date1')";
 	
 	mysql_query($sql);  
-	echo mysql_affected_rows($con).mysql_error();
 	
 	if(mysql_affected_rows($con)==1){
 	    $smtpserver = "smtp.163.com"; //SMTP服务器
@@ -53,7 +50,7 @@
     	$emailsubject = "举手之劳用户账号激活";//邮件主题
 		$emailsubject = "=?UTF-8?B?".base64_encode($emailsubject)."?=";
 	//邮件主体内容：
-    	$emailbody = "亲爱的".$username.":<br/>感谢您在我平台注册新账号。<br/>请点击链接激活您的账号。<br/><a href=http://172.25.133.6/active.php?verify=".$token." target=_blank>http://www.wehelp.com/demo/register/active.php?verify=".$token."</a><br/>
+    	$emailbody = "亲爱的".$username.":<br/>感谢您在我平台注册新账号。<br/>请点击链接激活您的账号。<br/><a href=http://192.168.1.111/active.php?verify=".$token." target=_blank>http://www.wehelp.com/demo/register/active.php?verify=".$token."</a><br/>
 	如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问，该链接48小时内有效。
 	<br/>如果此次激活请求非你本人所发，请忽略本邮件。<br/><p style='text-align:right'>-------- weHelp团队敬上</p>";
 	//发送邮件：

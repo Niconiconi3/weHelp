@@ -3,7 +3,7 @@
 	require('constants.php');
 //	$openID = $_POST['openID'];
 	//测试用
-	$_SESSION['openID'] = "aggasgasg3tw3454yw6q3y";
+	$_SESSION['openID'] = "aggasgasg3tw3454yasgjag";
     $openID = $_SESSION['openID'] ;
 		//查找数据库中是否含有该ID
 		$sql = "select * from user where openID = '$openID'";

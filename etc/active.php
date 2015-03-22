@@ -11,6 +11,7 @@ openID：openID
 积分：points
 */
    session_start();
+   $_SESSION['openID'] = "aggasgasg3tw3454yasgjag";
    include_once("constants.php");
    
    $verify = stripslashes(trim($_GET['verify']));
@@ -24,8 +25,10 @@ openID：openID
 	if(mysql_select_db(database)===FALSE)
 		die("could not connect to database");
     mysql_query("set names 'utf8'");
-   $query = mysql_query("select from t_studentid where `status`=0 and `token` = '$verify'");
-   $row = mysql_fetch_array($query);
+    $result = mysql_query("select * from `t_studentid` where status=0 and token = '$verify'");
+    if($result==false) 
+       exit("unable to find data in database");
+   $row = mysql_fetch_array($result);
    
     if($row){ 
         if($fmt>$row['token_exptime']){
@@ -38,7 +41,8 @@ openID：openID
 		   $openID = $_SESSION['openID'];
 		   $stuNum = $row['id'];
 		   $mail = $row['email'];
-		   $sql_insert = mysql_query("insert into `user` (user,openID,stuNum,mailBox,points)values('$user','$openID','$stuNum','$mail','INI_POINTS')");
+		   $ini_points = INI_POINTS;
+		   $sql_insert = mysql_query("insert into `user` (user,openID,stuNum,mailBox,points)values('$user','$openID','$stuNum','$mail','$ini_points')");
 		   //mysql_query("delete from `t_studentid` where id=".$row['id']);
 		   echo '激活成功';
 		}
