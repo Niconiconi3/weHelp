@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title id="MySpace_visitorTitle"></title>
+<meta content="off" http-equiv="x-dns-prefetch-control" charset="utf-8" ></meta>
+
+<meta content="target-densitydpi=320,width=640,user-scalable=no" name="viewport"></meta>
+
+<link rel="stylesheet" type="text/css" href=".\css\myspace.css"></link>
+<link rel="stylesheet" type="text/css" href=".\css\commonui.css"></link>
+<link rel="stylesheet" type="text/css" href=".\css\buttons.css"></link>
+
+<style type="text/css"></style>
+
+<script type="text/javascript">
+    
+    function showTimeLine(){
+        document.getElementById('ms_timeline').style.visibility="";
+        document.getElementById('ms_userInfo').style.visibility="hidden";
+    }
+    function showUserInfo(){
+        document.getElementById('ms_timeline').style.visibility="hidden";
+        document.getElementById('ms_userInfo').style.visibility="";
+    }
+</script>
+</head>
+
+<body id=MySpace_user>
+    <div id=ms_head>
+        <div id=ms_protrait></div>
+        <div id=ms_names>
+            <p class="userName" style="text-align:center">昵称</p>
+            <div id="ms_friendsList">
+                <div id="ms_followerList"><a><p class="text" >关注 233</p></a></div>
+                <div id="ms_fansList"><a><p class="text">粉丝 2333</p></a></div>
+             </div>
+            
+        </div>
+        <div id="ms_moreOperation" class="ui-select">
+            <span>更多操作</span>
+            <select id="operation" name="action"> 
+               <option value="friend">移除粉丝</option> 
+               <option value="follow">关注/取消关注</option> 
+                <option value="black">加入/移出黑名单</option>  
+            </select> 
+        </div>
+    </div>
+    <div id="ms_btns">
+        <a href="#" onClick="showTimeLine()"><div id="timelineBtn2"><p class="boldtext">新鲜事</p></div></a>
+        <a href="#" onClick="showUserInfo()"><div id="userInfoBtn2"><p class="boldtext">个人资料</p></div></a>
+    </div>
+    <div id="ms_timeline" style=""> 这里是我的任务</div>
+    <div id="ms_userInfo" style="visibility:hidden">
+       <h3>About Me</h3>
+        <div style="height:20px;">
+            <span class="text" >昵称：</span>
+            <span id="userName" class="text" style="">Niconiconi</span>
+        </div>
+        <p class="text">邮箱：</p>
+        <p class="text">微信：</p>
+    </div>
+</body>
+</html>

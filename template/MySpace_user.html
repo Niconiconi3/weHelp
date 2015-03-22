@@ -9,9 +9,41 @@
 
 <link rel="stylesheet" type="text/css" href=".\css\myspace.css"></link>
 <link rel="stylesheet" type="text/css" href=".\css\commonui.css"></link>
-<style type="text/css">
+<link rel="stylesheet" type="text/css" href=".\css\buttons.css"></link>
 
-</style>
+<style type="text/css"></style>
+
+<script type="text/javascript">
+    function setEdit() {
+        document.getElementById('editName').style.visibility="";
+        document.getElementById('userName').style.visibility="hidden";
+        document.getElementById('confirmBtn').style.visibility="";
+        document.getElementById('editBtn').style.visibility="hidden";
+    }
+    
+    function finishEdit(){
+        document.getElementById('editName').style.visibility="hidden";
+        document.getElementById('userName').style.visibility="";
+        document.getElementById('confirmBtn').style.visibility="hidden";
+        document.getElementById('editBtn').style.visibility="";
+    }
+    
+    function showTimeLine(){
+        document.getElementById('ms_timeline').style.visibility="";
+        document.getElementById('ms_myTask').style.visibility="hidden";
+        document.getElementById('ms_userInfo').style.visibility="hidden";
+    }
+    function showMyTask(){
+        document.getElementById('ms_timeline').style.visibility="hidden";
+        document.getElementById('ms_myTask').style.visibility="";
+        document.getElementById('ms_userInfo').style.visibility="hidden";
+    }
+    function showUserInfo(){
+        document.getElementById('ms_timeline').style.visibility="hidden";
+        document.getElementById('ms_myTask').style.visibility="hidden";
+        document.getElementById('ms_userInfo').style.visibility="";
+    }
+</script>
 </head>
 
 <body id=MySpace_user>
@@ -25,14 +57,31 @@
              </div>
             
         </div>
+        <div id="ms_moreOperation" class="ui-select">
+            <span>更多操作</span>
+            <select id="operation" name="action"> 
+                <option value="black">查看黑名单</option>  
+            </select> 
+        </div>
     </div>
     <div id="ms_btns">
-        <div id="timelineBtn"><p class="boldtext">新鲜事</p></div>
-        <div id="myTaskBtn"><p class="boldtext">我的任务</p></div>
-        <div id="userInfoBtn"><p class="boldtext">个人资料</p></div>
+        <a href="#" onClick="showTimeLine()"><div id="timelineBtn"><p class="boldtext">新鲜事</p></div></a>
+        <a href="#" onClick="showMyTask()"><div id="myTaskBtn"><p class="boldtext">我的任务</p></div></a>
+        <a href="#" onClick="showUserInfo()"><div id="userInfoBtn"><p class="boldtext">个人资料</p></div></a>
     </div>
-    <div id="ms_timeline"></div>
-    <div id="ms_myTask"></div>
-    <div id="ms_userInfo"></div>
+    <div id="ms_timeline" style=""> 这里是timeline</div>
+    <div id="ms_myTask" style="visibility:hidden"> 这里是我的任务</div>
+    <div id="ms_userInfo" style="visibility:hidden">
+       <h3>About Me</h3>
+        <div style="height:20px;">
+            <span class="text" >昵称：</span>
+            <span id="userName" class="text" style="">Niconiconi</span>
+            <input id="editName" type="text" style="visibility:hidden"/>
+            <div id="editBtn" style="position: relative; top:-20px;left:250px; width:40px; " ><a href="#" onClick="setEdit()">修改</a></div>
+            <input class="ghbutton" id="confirmBtn" type="submit"  value="确认修改" style="visibility:hidden" onclick="finishEdit()"></input>
+        </div>
+        <p class="text">邮箱：</p>
+        <p class="text">微信：</p>
+    </div>
 </body>
 </html>

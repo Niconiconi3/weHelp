@@ -1,6 +1,14 @@
 #ms_head{
     width: 100%; height: 240px;
 }
+#ms_moreOperation{
+    width: 100px;
+    height: 50px;
+    font-family: 微软雅黑; font-size: 15px;
+    float: right;
+    position: relative; top: -260px; right: 20px;
+    line-height: 50px;
+}
 #ms_protrait{
     margin:0 auto;
     width: 140px;
@@ -8,7 +16,7 @@
     background-image: url(icon/logo3.png);
     
 }
-
+#ms_moreOperation select{height: 50px;}
 
 #ms_names{
     width: 100%; height: 90px;
@@ -40,3 +48,33 @@
 #timelineBtn{float: left; width: 33%; height: 45px; text-align: center; border: solid 1px;}
 #myTaskBtn{float: left; width: 33%; height: 45px; text-align: center; border: solid 1px;}
 #userInfoBtn{float: left; width: 33%; height: 45px; text-align: center; border: solid 1px;}
+
+#timelineBtn2{float: left; width: 50%; height: 45px; text-align: center; border: solid 1px;}
+#userInfoBtn2{float: left; width: 49%; height: 45px; text-align: center; border: solid 1px;}
+
+#ms_timeline{
+    height: auto; width: 100%;
+    border: solid 1px;
+    position: absolute; top: 285px; left: 0px;
+}
+#ms_myTask{
+    height: auto; width: 100%;
+    border: solid 1px;
+    position: absolute; top: 285px; left: 0px;    
+}
+
+#ms_userInfo{
+    width: 100%; height: auto;
+    position: absolute; top: 285px; left: 0px;
+    border: solid 1px;
+    padding: 30px;
+}
+#editName{
+    position: absolute; left: 90px;
+    height: 20px;
+}
+#confirmBtn{
+    position: relative; top: -40px; left: 250px;
+    font-family: 微软雅黑;
+    
+}
