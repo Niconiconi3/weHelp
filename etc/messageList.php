@@ -8,7 +8,7 @@
 	 $user = $_SESSION['stuNum'];		
 	 
 	 //创建数据库语句
-	 $sql = "select * from message where toUser='$user' and time in (select max(time) from message group by fromUser) order by time desc";
+	 $sql = "select * from message where toUser='$user' order by time desc";
 	 
 	//验证数据库服务器连接
 	if(($con=mysql_connect(dbServer,dbUserName,dbPassword))===FALSE)

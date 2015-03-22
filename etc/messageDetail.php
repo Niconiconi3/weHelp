@@ -7,10 +7,11 @@
 	 require('constants.php');
 	 $user = $_SESSION['stuNum'];
 	 
-	 $fromUser = $_POST['fromUser'];
+	 $mid = $_POST['mid'];
 	 
 	 //创建数据库语句
-	 $sql = "select * from message where toUser='$user' and fromUser = '$fromUser' order by time desc";
+	 $sql1 = "select * from message where mid='$mid' order by time desc";
+	 $sql2 = "update message set status = 1 where mid = '$mid'";
 	 
 	//验证数据库服务器连接
 	if(($con=mysql_connect(dbServer,dbUserName,dbPassword))===FALSE)

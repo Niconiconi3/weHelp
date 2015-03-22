@@ -5,7 +5,7 @@
 	 */
 	 session_start();
 	 require('constants.php');
-	 $user = $_SESSION['stuNum'];		//从表单中获取任务类型
+	 $user = $_SESSION['stuNum'];		
 	 
 	 //创建数据库语句
 	 $sql = "select * from ((select * from follower where visitor_id = '$user' and status=1) as a inner join task on a.owner_id = task.author) order by time desc";

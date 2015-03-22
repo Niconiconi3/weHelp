@@ -10,6 +10,7 @@
 	 发送时间：time
 	 发送者学号：fromUser
 	 接受者学号：toUser
+	 状态：status
 	 */
 	 
 	 session_start();
@@ -21,11 +22,11 @@
 	//从表单获取数据
 	$toUser = $_POST['toUser'];			//接受私信人学号
 	$content = $_POST['content'];		//内容
-	
+	$status = 0;						//0表示未读		
 	$time = date("Y-m-d h:i:s");		//发布时间
 		
 	//创建插入数据语句
-	$sql = "insert into message (content,fromUser,toUser,time)values('$content','$fromUser','$toUser','$time')";
+	$sql = "insert into message (content,fromUser,toUser,time,status)values('$content','$fromUser','$toUser','$time','$status')";
 
 	//验证数据库服务器连接
 	if(($con=mysql_connect(dbServer,dbUserName,dbPassword))===FALSE)
