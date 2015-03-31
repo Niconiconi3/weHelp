@@ -29,7 +29,7 @@
 		if(mysql_select_db(database)===FALSE)
 			die("could not connect to database");
 	    mysql_query("set names 'utf8'");
-		$sql = "UPDATE `task` SET `content` = $content WHERE `ID` = $task_id";
+		$sql = "UPDATE `task` SET `content` = '$content' WHERE `ID` = '$task_id'";
 		$result = mysql_query($sql);
 		if(!$result){
 			echo '修改任务内容失败，请稍后尝试';
@@ -48,7 +48,7 @@
 		if(mysql_select_db(database)===FALSE)
 			die("could not connect to database");
 	    mysql_query("set names 'utf8'");
-		$sql = "UPDATE `task` SET `point` = $points WHERE `ID` = $task_id";
+		$sql = "UPDATE `task` SET `point` = '$points' WHERE `ID` = '$task_id'";
 		$result = mysql_query($sql);
 		if(!$result){
 			echo '修改失败，请稍后尝试';
@@ -67,7 +67,7 @@
 		if(mysql_select_db(database)===FALSE)
 			die("could not connect to database");
 	    mysql_query("set names 'utf8'");
-		$sql = "UPDATE `task` SET `validity` = $date WHERE `ID` = $task_id";
+		$sql = "UPDATE `task` SET `validity` = '$date' WHERE `ID` = '$task_id'";
 		$result = mysql_query($sql);
 		if(!$result){
 			echo '修改失败，请稍后尝试';
@@ -84,7 +84,7 @@
 		if(mysql_select_db(database)===FALSE)
 			die("could not connect to database");
 	    mysql_query("set names 'utf8'");
-		$sql = "UPDATE `task` SET `status` = false WHERE `id` = $task_id";
+		$sql = "UPDATE `task` SET `status` = 'false' WHERE `id` = '$task_id'";
 		$result = mysql_query($sql);
 		if(!$result){
 			echo 'r任务关闭失败，请稍后尝试';
@@ -103,7 +103,7 @@
 		if(mysql_select_db(database)===FALSE)
 			die("could not connect to database");
 	    mysql_query("set names 'utf8'");
-		$str1 = "SELECT points from user where `id` =  $studentid";
+		$str1 = "SELECT points from user where `id` =  '$studentid'";
 		$result = mysql_query($str);
 		$enough = false; //默认不够支付置顶
 		$remain_points = 0;
@@ -116,7 +116,7 @@
 		}
 		if($enough){
 			//如果置顶成功，设置stickie属性为true,更改积分
-			$str2 = "UPDATE `task` SET `stickie` = true WHERE `id` = $task_id";
+			$str2 = "UPDATE `task` SET `stickie` = 'true' WHERE `id` = '$task_id'";
 			$str3 = "UPDATE `user` SET `points` = $remain_points 
 			WHERE `id` = $task_id";
 		    $result = mysql_query($str2)&&mysql_query($str3);
