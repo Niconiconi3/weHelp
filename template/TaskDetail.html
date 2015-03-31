@@ -54,6 +54,36 @@
 </head>
 
 <body>
+<?php 
+	/*
+	 *任务详情
+	 *
+	 */
+	 session_start();
+	 require('constants.php');
+	 $taskID = 1;		//获取id
+	 
+	 $sql1 = "select * from task where ID = '$taskID'";
+	 $sql2 = "select * from comment where task_id = '$taskID'";
+	 
+	//验证数据库服务器连接
+	if(($con=mysql_connect(dbServer,dbUserName,dbPassword))===FALSE)
+		die("could not connect to database");
+	
+	//验证服务器连接
+	if(mysql_select_db(database)===FALSE)
+		die("could not connect to database");
+	 $task = mysql_query($sql1);
+	 $comments = mysql_query($sql2);
+		
+	//验证数据库操作是否成功
+	if($result===FALSE)
+		die("could not query database");
+	
+	//显示任务详情
+	$taskRow = mysql_fetch_array($task));
+	?>
+	
 <div id="td_head" class="head">
     <h1>任务详情</h1>
     <div class="backBtn"><a></a></div>
@@ -80,16 +110,20 @@
 </div>
 <div id="td_taskInfo">
     
-        <h2>任务标题</h2>
-        <p class="text">任务有效期</p>
-        <p class="text">任务类型</p>
-        <p class="text">悬赏积分</p>
-        <p class="text">任务状态</p>
+        <h2 >任务标题 <?php echo $taskRow['title']; ?> </h2>
+        <p class="text">任务有效期 <?php echo $taskRow['validity']; ?></p>
+        <p class="text">任务类型 <?php echo $taskRow['type']; ?></p>
+        <p class="text">悬赏积分 <?php echo $taskRow['point']; ?></p>
+        <p class="text">任务状态 <?php 
+                                if( $taskRow['status']==0) echo "待接受";
+                                if( $taskRow['status']==3) echo "已完成";
+                                else echo "进行中";
+                                ?></p>
     
 </div>
 <div id="td_taskDescription">
      <h3>任务详情</h3>
-     <p class="text" style="padding-right: 2cm;">这里是任务详情描述让我试试它能不能换行换行吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼吼啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦能换行就好</p>
+     <p class="text" style="padding-right: 2cm;">这里是任务详情<?php echo $taskRow['content']; ?></p>
      
 </div>
 
@@ -97,11 +131,14 @@
     <p class="text">这里是回复们</p>
 </div>
 
+<form id="addReply" action="..\\etc\reply.php" method="post">
 <div id="td_addReply">
     <h3>发表回复</h3>
-    <textarea id="replyBox" type="text" name="content"></textarea>
+    <textarea id="replyBox" type="text" name="reply_content"></textarea>
     <input class="ghbutton" id="replyBtn" type="submit"  value="回复" ></input>
 </div>
+</form>
+
 <div style="height:90px"></div>
 <div id="td_operation">
     
