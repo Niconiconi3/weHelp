@@ -1,0 +1,47 @@
+#fl_head{
+    width: 100%; height: 90px;
+    position: absolute; top: 0px; left: 0px;
+    border: solid 1px;
+}
+#fl_body{
+    position: absolute; top:90px; left:0px;
+    width: 100%;
+}
+
+.friendDiv{
+    height: 100px;
+    border: solid 1px;
+}
+.friendDiv_protrait{
+    width: 90px; height: 86px;   
+    margin-top: 10px;
+    margin-left: 30px;
+    float: left;
+    background-image: url(icon/logo2.png);
+}
+.friendDiv_detail{
+    width: 50%;
+    height: 50px;
+    margin-left: 30px;
+    margin-top: 20px;
+    float: left;
+}
+
+.friendDiv_moreOperations{
+    text-align: center; 
+    /* 加border只是为了看到边框*/  
+    border:solid 1px;  
+    width: 100px;
+    height: 50px;
+    float: right; margin-top: 25px;margin-right: 20px;
+    font-family: 微软雅黑; font-size: 15px;
+    line-height: 50px;
+}
+.friendDiv_moreOperations select{
+    position: absolute;
+    left: 0px;
+    top:0px;
+    width: 100%; 
+    opacity: 0; 
+    height: 50px;
+}

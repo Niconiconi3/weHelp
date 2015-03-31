@@ -1,0 +1,28 @@
+#mb_head{
+    width: 100%; height: 90px;
+    position: absolute; top: 0px; left: 0px;
+    border: solid 1px;
+}
+#mb_body{
+    position: absolute; top:90px; left:0px;
+    width: 100%;
+}
+
+.mailDiv{
+    height: 120px;
+    border: solid 1px;
+}
+.mailDiv_protrait{
+    width: 90px; height: 86px;   
+    margin-top: 20px;
+    margin-left: 30px;
+    float: left;
+    background-image: url(icon/logo2.png);
+}
+.mailDiv_detail{
+    width: 87%;
+    height: 100px;
+    margin-right: 30px;
+    margin-top: 10px;
+    float: right;
+}
