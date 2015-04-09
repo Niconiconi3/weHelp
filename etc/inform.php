@@ -13,7 +13,7 @@
 	include_once("constants.php");
 	
 	function inform(){
-		$operator = $_SESSION['current_user'];
+		$operator = $_SESSION['admin'];
 		$content = stripcslashes(trim($_POST['content']));
 		$to = $_POST['to'];
 		$temp = time();
@@ -33,7 +33,7 @@
 	}
 	
 	function get_reply(){
-		$operator = $_SESSION['current_user'];
+		$operator = $_SESSION['admin'];
 		$con = mysql_connect(dbServer,dbUserName,dbPassword);
 		if (!$con){
 			die('Could not connect: ' . mysql_error());
@@ -59,7 +59,7 @@
 	function get_inform(){
 		$inform_list = array();
 		$index = 0;
-		$user = $_SESSION['stuNum'];
+		$user = $_SESSION['admin'];
 		$con = mysql_connect(dbServer,dbUserName,dbPassword);
 		if (!$con){
 			die('Could not connect: ' . mysql_error());

@@ -8,7 +8,7 @@
 	session_start();
 	incluede_once("constants.php");
 	function doNotify(){
-		$operator = $_SESSION['current_user'];
+		$operator = $_SESSION['admin'];
 		$title = stripcslashes(trim($_POST['title']));
 		$content = stripcslashes(trim($_POST['content']));
 		$validity = $_POST['validity'];

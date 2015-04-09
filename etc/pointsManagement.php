@@ -18,7 +18,7 @@
 	
 	function award(){
 		$user = $_POST['user_id'];
-		$operator = $_SESSION['stuNum'];
+		$operator = $_SESSION['admin'];
 		$pts = $_POST['points'];
 		
 		$con = mysql_connect(dbServer,dbUserName,dbPassword);
@@ -45,7 +45,7 @@
 			echo '积分奖励失败，请稍后再试';
 		}
 		else{
-			$operator = $_SESSION['stuNum'];
+			$operator = $_SESSION['admin'];
 			$description = $_POST['description'];
 			$temp = time();  
 			$time = date('Y-m-d H:i:s', $temp);
@@ -59,7 +59,7 @@
 	
 	function punish(){
 		$user = $_POST['user_id'];
-		$operator = $_SESSION['stuNum'];
+		$operator = $_SESSION['admin'];
 		$pts = $_POST['points'];
 		
 		$con = mysql_connect(dbServer,dbUserName,dbPassword);
@@ -86,7 +86,7 @@
 			echo '积分扣除失败，请稍后再试';
 		}
 		else{
-			$operator = $_SESSION['stuNum'];
+			$operator = $_SESSION['admin'];
 			$description = $_POST['description'];
 			$temp = time();  
 			$time = date('Y-m-d H:i:s', $temp);

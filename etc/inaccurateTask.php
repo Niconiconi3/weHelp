@@ -30,7 +30,7 @@
 			echo '移动任务失败，请稍后再试';
 		}
 		else{
-			$operator = $_SESSION['stuNum'];
+			$operator = $_SESSION['admin'];
 			$description = $_POST['description'];
 			$temp = time();  
 			$time = date('Y-m-d H:i:s', $temp);
@@ -44,6 +44,8 @@
 		
 	function delete_task(){
 		$task_id = $_POST['task_id'];
+		$operator = $_SESSION['admin'];
+		
 		$con = mysql_connect(dbServer,dbUserName,dbPassword);
 		if (!$con){
 			die('Could not connect: ' . mysql_error());
