@@ -6,6 +6,7 @@
   需要task_id，author_id(任务发布者),exec_id（接受者）,表t_task,标识action（accept_task,exec_confirm,author_confirm）
   (status是0,1,2,3)
 */
+include_once("constants.php");
 $action = $_POST['action'];
 if($action==="accept_task"){
 	accept_task();

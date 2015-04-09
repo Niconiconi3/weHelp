@@ -20,7 +20,7 @@
 		die("could not connect to database");
     mysql_query("set names 'utf8'");
 	$sql = "INSERT INTO comment(author_id, task_id, reply, time) 
-	values($author,$task_id, $reply_content, $time)";
+	values('$author','$task_id', '$reply_content', '$time')";
 	
 	$result = mysql_query($sql);
 	if($result){
