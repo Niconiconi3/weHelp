@@ -1,12 +1,12 @@
 <?php
 	/*
-	ÓÃÓÚ»ý·Ö¹ÜÀí
-	°üÀ¨½±Àø»ý·Ö¡¢¿Û³ý»ý·Ö
-	Ðè¼ÇÂ¼²Ù×÷ÈÕÖ¾
+	ç”¨äºŽç§¯åˆ†ç®¡ç†
+	åŒ…æ‹¬å¥–åŠ±ç§¯åˆ†ã€æ‰£é™¤ç§¯åˆ†
+	éœ€è®°å½•æ“ä½œæ—¥å¿—
 	points_log(user_id,operator,operation,num,description,time)
-	operation°üÀ¨award,punish
-	numÊÇ²Ù×÷»ý·ÖÊýÄ¿
-	descriptionËµÃ÷½±Àø/¿Û³ý»ý·ÖµÄÀíÓÉ£¬±ØÌî£¬ÓÉ¹ÜÀíÔ±ÔÚ½çÃæÌîÐ´
+	operationåŒ…æ‹¬award,punish
+	numæ˜¯æ“ä½œç§¯åˆ†æ•°ç›®
+	descriptionè¯´æ˜Žå¥–åŠ±/æ‰£é™¤ç§¯åˆ†çš„ç†ç”±ï¼Œå¿…å¡«ï¼Œç”±ç®¡ç†å‘˜åœ¨ç•Œé¢å¡«å†™
 	*/
 	session_start();
 	include_once("constants.php");
@@ -42,7 +42,7 @@
 		$result = mysql_query($sql);
 		
 		if(!$result){
-			echo '»ý·Ö½±ÀøÊ§°Ü£¬ÇëÉÔºóÔÙÊÔ';
+			echo 'ç§¯åˆ†å¥–åŠ±å¤±è´¥ï¼Œè¯·ç¨åŽå†è¯•';
 		}
 		else{
 			$operator = $_SESSION['stuNum'];
@@ -51,7 +51,7 @@
 			$time = date('Y-m-d H:i:s', $temp);
 			$sql2 = "INSERT INTO `log` values('$task_id','award','$operator','$description','$time')";
 			if(mysql_query($sql2))
-				echo '»ý·Ö½±Àø³É¹¦¡£';
+				echo 'ç§¯åˆ†å¥–åŠ±æˆåŠŸã€‚';
 			else
 				echo 'something wrong';
 		}
@@ -83,7 +83,7 @@
 		$result = mysql_query($sql);
 		
 		if(!$result){
-			echo '»ý·Ö¿Û³ýÊ§°Ü£¬ÇëÉÔºóÔÙÊÔ';
+			echo 'ç§¯åˆ†æ‰£é™¤å¤±è´¥ï¼Œè¯·ç¨åŽå†è¯•';
 		}
 		else{
 			$operator = $_SESSION['stuNum'];
@@ -92,7 +92,7 @@
 			$time = date('Y-m-d H:i:s', $temp);
 			$sql2 = "INSERT INTO `log` values('$task_id','award','$operator','$description','$time')";
 			if(mysql_query($sql2))
-				echo '»ý·Ö¿Û³ý³É¹¦¡£';
+				echo 'ç§¯åˆ†æ‰£é™¤æˆåŠŸã€‚';
 			else
 				echo 'something wrong';
 		}

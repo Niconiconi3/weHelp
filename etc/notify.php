@@ -1,7 +1,7 @@
 <?php
 	/*
-	´Ë¶Î´úÂëÓÃÓÚ¹ÜÀíÔ±·¢²¼¹«¸æ(doNotify)£¬¼°·µ»ØÒªÏÔÊ¾µÄ¹«¸æÁÐ±í(getNotifyList)	ÐèÒªÓÃµ½¹«¸æ±êÌâ$title£¬¹«¸æÄÚÈÝ$content£¬¹«¸æÓÐÐ§ÆÚ$validity(½ØÖ¹ÓÐÐ§µÄÈÕÆÚ)£¬¹«¸æÓÅÏÈ¼¶$priority£¨·ÖÎª1,2,3£©£¬ÓÐ¶àÌõ¹«¸æ¿ÉÒÔÏÔÊ¾Ê±¸ù¾ÝÓÅÏÈ¼¶ºÍÊ±¼äÅÅÐò
-	±í
+	æ­¤æ®µä»£ç ç”¨äºŽç®¡ç†å‘˜å‘å¸ƒå…¬å‘Š(doNotify)ï¼ŒåŠè¿”å›žè¦æ˜¾ç¤ºçš„å…¬å‘Šåˆ—è¡¨(getNotifyList)	éœ€è¦ç”¨åˆ°å…¬å‘Šæ ‡é¢˜$titleï¼Œå…¬å‘Šå†…å®¹$contentï¼Œå…¬å‘Šæœ‰æ•ˆæœŸ$validity(æˆªæ­¢æœ‰æ•ˆçš„æ—¥æœŸ)ï¼Œå…¬å‘Šä¼˜å…ˆçº§$priorityï¼ˆåˆ†ä¸º1,2,3ï¼‰ï¼Œæœ‰å¤šæ¡å…¬å‘Šå¯ä»¥æ˜¾ç¤ºæ—¶æ ¹æ®ä¼˜å…ˆçº§å’Œæ—¶é—´æŽ’åº
+	è¡¨
 	notify(operator,title,content,validity,priority,time)
 	*/
 	
@@ -26,9 +26,9 @@
 		$sql = "insert into `notify` values ('$operator','$title','$content','$validity','$priority','$time')";
 		$result = mysql_query($sql);
 		if($result)
-			echo '¹«¸æ·¢²¼³É¹¦£¡';
+			echo 'å…¬å‘Šå‘å¸ƒæˆåŠŸï¼';
 		else 
-			echo '¹«¸æÌí¼ÓÊ§°Ü£¬ÇëÉÔºóÔÙÊÔ.'
+			echo 'å…¬å‘Šæ·»åŠ å¤±è´¥ï¼Œè¯·ç¨åŽå†è¯•.'
 	}
 	
 	function getNotifyList(){
@@ -50,13 +50,13 @@
 		if($res){
 			while($row=mysql_fetch_array($res)){
 				list[$index] = $row;
-				//²âÊÔÓÃ
+				//æµ‹è¯•ç”¨
 				print_r($row;)
 				$index++;
 			}
 		}
 		else
-			echo "»ñÈ¡¹«¸æÁÐ±íÊ§°Ü¡£";
+			echo "èŽ·å–å…¬å‘Šåˆ—è¡¨å¤±è´¥ã€‚";
 		return list;
 	}
 ?>
