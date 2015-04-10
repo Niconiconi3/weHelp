@@ -77,11 +77,15 @@
 	 $comments = mysql_query($sql2);
 		
 	//验证数据库操作是否成功
-	if($result===FALSE)
+	if($task===FALSE&&$comments===false)
 		die("could not query database");
 	
 	//显示任务详情
+<<<<<<< HEAD
 	global $taskRow = mysql_fetch_array($task));
+=======
+	$taskRow = mysql_fetch_array($task);
+>>>>>>> origin/master
 	?>
 	
 <div id="td_head" class="head">
@@ -111,19 +115,19 @@
 <div id="td_taskInfo">
     
         <h2 >任务标题 <?php echo $taskRow['title']; ?> </h2>
-        <p class="text">任务有效期 <?php echo $taskRow['validity']; ?></p>
-        <p class="text">任务类型 <?php echo $taskRow['type']; ?></p>
-        <p class="text">悬赏积分 <?php echo $taskRow['point']; ?></p>
+        <p class="text">任务有效期 <?php echo " ".$taskRow['validity']; ?></p>
+        <p class="text">任务类型 <?php echo " ".$taskRow['type']; ?></p>
+        <p class="text">悬赏积分 <?php echo " ".$taskRow['point']; ?></p>
         <p class="text">任务状态 <?php 
-                                if( $taskRow['status']==0) echo "待接受";
-                                if( $taskRow['status']==3) echo "已完成";
-                                else echo "进行中";
+                                if( $taskRow['status']==0) echo " 待接受";
+                                if( $taskRow['status']==3) echo " 已完成";
+                                else echo " 进行中";
                                 ?></p>
     
 </div>
 <div id="td_taskDescription">
      <h3>任务详情</h3>
-     <p class="text" style="padding-right: 2cm;">这里是任务详情<?php echo $taskRow['content']; ?></p>
+     <p class="text" style="padding-right: 2cm;">这里是任务详情<?php echo " ".$taskRow['content']; ?></p>
      
 </div>
 
