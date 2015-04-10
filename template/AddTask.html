@@ -6,16 +6,16 @@
 <meta content="off" http-equiv="x-dns-prefetch-control" charset="utf-8" ></meta>
 <meta content="target-densitydpi=320,width=640,user-scalable=no" name="viewport"></meta>
 <script language="javascript" type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
-<link rel="stylesheet" type="text/css" href=".\css\addtask.css"></link>
-<link rel="stylesheet" type="text/css" href=".\css\commonui.css"></link>
-<link rel="stylesheet" type="text/css" href=".\css\buttons.css"></link>
+<link rel="stylesheet" type="text/css" href="http://localhost/css/addtask.css"></link>
+<link rel="stylesheet" type="text/css" href="http://localhost/css/commonui.css"></link>
+<link rel="stylesheet" type="text/css" href="http://localhost/css/buttons.css"></link>
 <style type="text/css"></style>
 
 
 </head>
 
 <body>
-<form id="addTask" action="..\\etc\addTask.php" method="post">
+<form id="addTask" action="addTask.php" method="post">
 <div id="at_head" class="head">
     <h1>发布任务</h1>
     <div class="backBtn"><a></a></div>
@@ -43,16 +43,16 @@
         <span class="text">任务有效期</span>
         <input id= "taskdate" type="text" name="date" onClick="WdatePicker()" onChange="setTaskTime()" placeholder="点击选择任务日期"/>
         <select id="hour" name="hour" onChange="setTaskTime()">
-                <option selected="selected" value="0">00</option>
-                <option value="1">01</option>
-                <option value="2">02</option>
-                <option value="3">03</option>
-                <option value="4">04</option>
-                <option value="5">05</option>
-                <option value="6">06</option>
-                <option value="7">07</option>
-                <option value="8">08</option>
-                <option value="9">09</option>
+                <option selected="selected" value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
                 <option value="10">10</option>
                 <option value="11">11</option>
                 <option value="12">12</option>
@@ -70,16 +70,16 @@
         </select>
         <span id="wtf" class="text">:</span>
         <select id="min" name="minute" onChange="setTaskTime()">
-                <option selected="selected" value="0">00</option>
-                <option value="1">01</option>
-                <option value="2">02</option>
-                <option value="3">03</option>
-                <option value="4">04</option>
-                <option value="5">05</option>
-                <option value="6">06</option>
-                <option value="7">07</option>
-                <option value="8">08</option>
-                <option value="9">09</option>
+                <option selected="selected" value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
                 <option value="10">10</option>
                 <option value="11">11</option>
                 <option value="12">12</option>
