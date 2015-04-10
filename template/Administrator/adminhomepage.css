@@ -1,0 +1,147 @@
+#hp_head{
+    border: solid 1px;
+    width: 100%;
+    height: 100px;
+    position: absolute; top: 0px; left: 0px;
+    margin: 0 auto;
+}
+
+#logo{
+    float: left;
+    width: 250px;
+    height: 100px;
+    margin-left: 50px;
+    border: solid 1px;
+}
+.Btn{
+    float: left;
+    width: 120px;
+    height: 50px;
+    margin-top: 25px;
+    border: solid 1px;
+}
+
+#userlist{
+    width: 100%;
+    height: 1200px;
+    position: absolute;
+    left: 0px;
+    top: 100px;
+    border: solid 1px;
+}
+#userlist_name{
+    height: 50px;
+    border: solid 1px;
+    padding-left: 50px;
+}
+#finduser{
+    height: 70px;  
+    padding-right: 83px;
+}
+#searchBtn{
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    float: right;
+    font-family: 微软雅黑; font-size: 15px;
+    line-height: 10px;
+}
+#userlist_page_turn{
+    margin: 0 auto;
+    line-height: 30px;
+    text-align: center;
+    padding-left: 85%;
+    padding-top: 20px;
+    height: 70px;   
+    font-family: 微软雅黑;
+}
+#userlist_forward{
+    border:2px solid #E7E7EB;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+#userlist_page{
+    width: 50px;
+    height: 30px;
+    float: left;
+}
+#userlist_backward{
+    border:2px solid #E7E7EB;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+#userlist_table{
+    width: 90%;
+    margin-left: 50px;
+    background-color: #FFF;
+    border-top: 1px solid #E7E7EB;
+    border-bottom: 1px solid #E7E7EB;
+    border-spacing: 0px;
+    font-size: 15px;
+    font-weight: 400;
+    border-spacing: 0px;
+}
+#table_head{
+    background-color: #F4F5F9;
+}
+
+.table_cell{  
+    padding-left: 20px;
+    padding-right: 20px;
+    border-left: 1px solid #E7E7EB;
+    border-bottom: 1px solid #E7E7EB;
+}
+.table_cell.choose{
+    width: 200px;
+    border-left: 0;
+    border-right: 1px solid #E7E7EB;
+}
+.table_cell.select{
+    width: 40px;
+}
+.table_cell.info{
+    border-left: 0;   
+    padding-left: 0px;
+}
+#group_select{
+    padding-top: 15px;
+    width: 190px;
+    height: 45px;
+    text-align: left;
+}
+.selectBox{
+    position: relative; top: 3px;
+    font-family: 微软雅黑; 
+    font-weight: 400;
+    font-size: 15px;
+}
+.userOperation{
+    display: inline-block; 
+    border-color: #E6E7EC;
+    width: 100px; height: 27px;
+    line-height: 25px;
+    font-family: 微软雅黑; 
+    font-size: 15px;
+}
+
+.portrait{
+    float: left;
+    height: 60px;  
+    width: 60px;
+    border: solid 1px;
+    margin-top: 8px;
+}
+.username{
+    padding: 15px;
+    width: 400px;
+    float: left;
+    font-family: 微软雅黑; 
+    font-size: 15px;
+}

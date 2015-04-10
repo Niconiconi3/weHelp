@@ -81,7 +81,7 @@
 		die("could not query database");
 	
 	//显示任务详情
-	$taskRow = mysql_fetch_array($task));
+	global $taskRow = mysql_fetch_array($task));
 	?>
 	
 <div id="td_head" class="head">
@@ -135,6 +135,7 @@
 <div id="td_addReply">
     <h3>发表回复</h3>
     <textarea id="replyBox" type="text" name="reply_content"></textarea>
+    <input name="task_id" value="" style="visibility:hidden"></input>
     <input class="ghbutton" id="replyBtn" type="submit"  value="回复" ></input>
 </div>
 </form>

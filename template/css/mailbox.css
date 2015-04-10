@@ -26,3 +26,29 @@
     margin-top: 10px;
     float: right;
 }
+
+#contentDiv{
+    position: relative; top:-16px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.sendMessage{
+    height: 350px;
+    border: solid 1px;
+    padding-left: 30px;
+}
+.messageBox{
+    position: relative; height: 200px;
+    padding: 10px;
+    width: 97%;   
+}
+#messageBtn{
+    width: 100px;
+    height: 35px;
+    margin: 20px;
+    float: right;
+    font-family: 微软雅黑; font-size: 15px;
+}

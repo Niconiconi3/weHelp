@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title id="SendMailTitle"></title>
+<meta content="off" http-equiv="x-dns-prefetch-control" charset="utf-8" ></meta>
+
+<meta content="target-densitydpi=320,width=640,user-scalable=no" name="viewport"></meta>
+
+<link rel="stylesheet" type="text/css" href=".\css\mailbox.css"></link>
+<link rel="stylesheet" type="text/css" href=".\css\commonui.css"></link>
+<link rel="stylesheet" type="text/css" href=".\css\buttons.css"></link>
+
+<style type="text/css"></style>
+</head>
+
+<body id="SendMail">
+    <div id="mb_head">
+        <h1>站内信</h1>
+    </div>
+    <div id="mb_body">
+        <div class="mailDiv">
+            <div class="mailDiv_protrait"></div>
+            <div class="mailDiv_detail"> 
+                <h3>收信人：Niconiconi</h3>
+                <p class="text">2015-04-08 </p>
+            </div>
+        </div>
+        
+        <form id="addReply" action="..\\etc\reply.php" method="post">
+        <div class="sendMessage">
+           <h3>写站内信</h3>
+            <textarea class="messageBox" type="text" name="reply_content" placeholder=""></textarea>
+            <input name="task_id" value="" style="visibility:hidden"></input>
+            <input class="ghbutton" id="messageBtn" type="submit"  value="发送" ></input>
+        </div>
+        </form>
+    </div>
+</body>
+
+
+</html>
