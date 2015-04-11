@@ -109,12 +109,12 @@
     <div id="td_protrait">
         <a href=""></a>
     </div>
-    <div id="promulgatorName"><p class="userName">匿名用户</p></div>
-    <div id=time><p class="text">2015/3/7 17:22</p></div>
+    <div id="promulgatorName"><p class="userName"><?php if($taskRow['anonymous']==true) echo "匿名用户";  else echo "我需要一个获取昵称的方法"?></p></div>
+    
 </div>
 <div id="td_taskInfo">
     
-        <h2 >任务标题 <?php echo $taskRow['title']; ?> </h2>
+        <h2 ><?php echo $taskRow['title']; ?> </h2>
         <p class="text">任务有效期 <?php echo " ".$taskRow['validity']; ?></p>
         <p class="text">任务类型 <?php echo " ".$taskRow['type']; ?></p>
         <p class="text">悬赏积分 <?php echo " ".$taskRow['point']; ?></p>
@@ -127,7 +127,7 @@
 </div>
 <div id="td_taskDescription">
      <h3>任务详情</h3>
-     <p class="text" style="padding-right: 2cm;">这里是任务详情<?php echo " ".$taskRow['content']; ?></p>
+     <p class="text" style="padding-right: 2cm;"><?php echo " ".$taskRow['content']; ?></p>
      
 </div>
 
