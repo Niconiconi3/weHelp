@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title id="AddTaskTitle"></title>
+<meta content="off" http-equiv="x-dns-prefetch-control" charset="utf-8" ></meta>
+<meta content="target-densitydpi=320,width=640,user-scalable=no" name="viewport"></meta>
+<link rel="stylesheet" type="text/css" href="./css/commonui.css"></link>
+<style type="text/css"></style>
+<script type="text/javascript">     
+    function countDown(secs,surl){     
+        //alert(surl);     
+        var jumpTo = document.getElementById('jumpTo');
+        jumpTo.innerHTML=secs;  
+        if(--secs>0){     
+            setTimeout("countDown("+secs+",'"+surl+"')",1000);     
+        }     
+        else{       
+            location.href=surl;     
+        }     
+    }     
+</script> 
+
+</head>
+
+<body>
+    <div style="width:20%;height:200px;position:absolute;left:40%; top:30%;">
+        <div><p class="text">恭喜您，您的账号已激活成功</p></div>
+        <div><p class="text">快回举手之劳浏览吧！</p></div>
+        <div class="text"><span id="jumpTo" class="text">5</span>秒后自动跳转到<a href="HomePage.html">首页</a></div>
+        <script type="text/javascript">countDown(5,"HomePage.html");</script>  
+        
+    </div>
+</body>
+</html>
