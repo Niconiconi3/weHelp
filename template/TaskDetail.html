@@ -115,10 +115,10 @@
 <div id="td_taskInfo">
     
         <h2 ><?php echo $taskRow['title']; ?> </h2>
-        <p class="text">任务有效期 <?php echo " ".$taskRow['validity']; ?></p>
-        <p class="text">任务类型 <?php echo " ".$taskRow['type']; ?></p>
-        <p class="text">悬赏积分 <?php echo " ".$taskRow['point']; ?></p>
-        <p class="text">任务状态 <?php 
+        <p class="text">任务有效期：<?php echo " ".$taskRow['validity']; ?></p>
+        <p class="text">任务类型：<?php echo " ".$taskRow['type']; ?></p>
+        <p class="text">悬赏积分：<?php echo " ".$taskRow['point']; ?></p>
+        <p class="text">任务状态：<?php 
                                 if( $taskRow['status']==0) echo " 待接受";
                                 if( $taskRow['status']==3) echo " 已完成";
                                 else echo " 进行中";
