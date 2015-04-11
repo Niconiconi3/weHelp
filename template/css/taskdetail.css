@@ -68,3 +68,11 @@
     font-family: 微软雅黑; font-size: 15px;
 }
 
+#td_operation{
+    background-color: grey;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}
